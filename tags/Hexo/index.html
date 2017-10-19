@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
 <meta name="description" content="这个人很懒，什么都没有留下">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wynter">
-<meta property="og:url" content="https://wynter.wang/tags/hexo/index.html">
+<meta property="og:url" content="https://wynter.wang/tags/Hexo/index.html">
 <meta property="og:site_name" content="Wynter">
 <meta property="og:description" content="这个人很懒，什么都没有留下">
 <meta property="og:locale" content="zh-Hans">
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://wynter.wang/tags/hexo/"/>
+  <link rel="canonical" href="https://wynter.wang/tags/Hexo/"/>
 
 
 
 
 
-  <title>标签: hexo | Wynter</title>
+  <title>标签: Hexo | Wynter</title>
   
 
 
@@ -280,7 +280,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>hexo<small>标签</small>
+        <h1>Hexo<small>标签</small>
         </h1>
       </div>
 
@@ -292,9 +292,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/01/12/个人博客搭建前期工作/" itemprop="url">
+            <a class="post-title-link" href="/2017/01/18/Hexo-博客搭建/" itemprop="url">
               
-                <span itemprop="name">个人博客搭建前期工作</span>
+                <span itemprop="name">Hexo 博客搭建</span>
               
             </a>
         
@@ -302,9 +302,37 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-12T19:10:27+08:00"
-              content="2017-01-12" >
-          01-12
+              datetime="2017-01-18T16:13:16+08:00"
+              content="2017-01-18" >
+          01-18
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客/" itemprop="url">
+              
+                <span itemprop="name">阿里云虚拟机下搭建Typecho、WordPress博客</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-01-17T16:13:16+08:00"
+              content="2017-01-17" >
+          01-17
         </time>
       </div>
 
@@ -468,7 +496,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
@@ -1038,46 +1066,6 @@
             newcounter.save(null, {
               success: function(newcounter) {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-ById(url));
                 $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
               },
               error: function(newcounter, error) {
