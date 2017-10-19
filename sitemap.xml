@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wynter.wang/2017/10/19/hello-world/</loc>
-    
-    <lastmod>2017-10-19T13:39:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wynter.wang/2017/05/01/iOS-%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BESDK-%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
     
     <lastmod>2017-05-15T10:12:45.000Z</lastmod>
@@ -271,6 +264,13 @@
     <loc>https://wynter.wang/2017/01/11/MAC-%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     
     <lastmod>2017-01-12T01:16:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wynter.wang/about/index.html</loc>
+    
+    <lastmod>2017-01-11T06:20:11.000Z</lastmod>
     
   </url>
   

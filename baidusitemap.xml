@@ -4,21 +4,6 @@
 
     
   <url>
-    <loc>https://wynter.wang/2017/10/19/hello-world/</loc>
-    <lastmod>2017-10-19T13:39:30.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2017-10-19T13:39:30.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://wynter.wang/2017/05/01/iOS-%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BESDK-%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
     <lastmod>2017-05-15T10:12:45.000Z</lastmod>
     <data>
@@ -853,4 +838,5 @@
     </data>
     </url>
 
+    
 </urlset>
