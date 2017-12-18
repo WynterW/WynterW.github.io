@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="API,iOS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wynter" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="CGGeometry是用C语言实现的一个封装了许多常用几何方法的文件">
+<meta name="keywords" content="API,iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS CGGeometry">
+<meta property="og:url" content="https://wynter.wang/2017/10/11/iOS--CGGeometry/index.html">
+<meta property="og:site_name" content="Wynter">
+<meta property="og:description" content="CGGeometry是用C语言实现的一个封装了许多常用几何方法的文件">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-18T02:55:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS CGGeometry">
+<meta name="twitter:description" content="CGGeometry是用C语言实现的一个封装了许多常用几何方法的文件">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wynter.wang/2017/10/11/iOS--CGGeometry/"/>
+
+
+
+
+
+  <title>iOS CGGeometry | Wynter</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?eb9267624f5fd445774b73f1dee93a8f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wynter</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不甘平庸，就别懒惰</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2017/10/11/iOS--CGGeometry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wynter">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS CGGeometry</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-11T14:14:26+08:00">
+                2017-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/10/11/iOS--CGGeometry/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/10/11/iOS--CGGeometry/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2017/10/11/iOS--CGGeometry/" class="leancloud_visitors" data-flag-title="iOS CGGeometry">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CGGeometry是用C语言实现的一个封装了许多常用几何方法的文件<br><a id="more"></a></p>
+<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 结构体</span></div><div class="line"></div><div class="line"><span class="comment">/* 定义一个点，设置x坐标和y坐标 */</span></div><div class="line"><span class="keyword">struct</span></div><div class="line"><span class="built_in">CGPoint</span> &#123;</div><div class="line">    <span class="built_in">CGFloat</span> x;</div><div class="line">    <span class="built_in">CGFloat</span> y;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/* 定义一个尺寸，设置宽度和高度 */</span></div><div class="line"><span class="keyword">struct</span> <span class="built_in">CGSize</span> &#123;</div><div class="line">    <span class="built_in">CGFloat</span> width;</div><div class="line">    <span class="built_in">CGFloat</span> height;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/* 定义一个二维矢量 */</span></div><div class="line"><span class="keyword">struct</span> <span class="built_in">CGVector</span> &#123;</div><div class="line">    <span class="built_in">CGFloat</span> dx;</div><div class="line">    <span class="built_in">CGFloat</span> dy;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/* 定义一个矩形*/</span></div><div class="line"><span class="keyword">struct</span> <span class="built_in">CGRect</span> &#123;</div><div class="line">    <span class="built_in">CGPoint</span> origin;</div><div class="line">    <span class="built_in">CGSize</span> size;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="全局常量"><a href="#全局常量" class="headerlink" title="全局常量"></a>全局常量</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 全局常量</span></div><div class="line"></div><div class="line"><span class="comment">/*零点，与CGPointMake(0, 0)等效 */</span> </div><div class="line"><span class="keyword">const</span> <span class="built_in">CGPoint</span> <span class="built_in">CGPointZero</span></div><div class="line"></div><div class="line"><span class="comment">/*零尺寸，与CGSizeMake(0, 0)等效*/</span> </div><div class="line"> <span class="keyword">const</span> <span class="built_in">CGSize</span> <span class="built_in">CGSizeZero</span></div><div class="line"></div><div class="line"><span class="comment">/*零矩形，与CGRectMake(0, 0, 0, 0)等效*/</span> </div><div class="line"> <span class="keyword">const</span> <span class="built_in">CGRect</span> <span class="built_in">CGRectZero</span></div><div class="line"></div><div class="line"><span class="comment">/*空矩形，这个和零矩形并不相同，当我们返回两个不相交矩形的交集时，会返回空矩形 */</span></div><div class="line"> <span class="keyword">const</span> <span class="built_in">CGRect</span> <span class="built_in">CGRectNull</span></div><div class="line"></div><div class="line"><span class="comment">/* 无限的矩形 */</span></div><div class="line"><span class="keyword">const</span> <span class="built_in">CGRect</span> <span class="built_in">CGRectInfinite</span></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - 创建几何</span></div><div class="line"></div><div class="line"><span class="comment">/* 根据`(x, y)`创建一个点 */</span></div><div class="line"> <span class="built_in">CGPoint</span> <span class="built_in">CGPointMake</span>(<span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y);</div><div class="line"></div><div class="line"><span class="comment">/* 根据 `(width, height)'创建一个尺寸*/</span></div><div class="line"><span class="built_in">CGSize</span> <span class="built_in">CGSizeMake</span>(<span class="built_in">CGFloat</span> width, <span class="built_in">CGFloat</span> height);</div><div class="line"></div><div class="line"><span class="comment">/* 根据 `(dx, dy)'创建一个矢量 */</span></div><div class="line"><span class="built_in">CGVector</span> <span class="built_in">CGVectorMake</span>(<span class="built_in">CGFloat</span> dx, <span class="built_in">CGFloat</span> dy);</div><div class="line"></div><div class="line"><span class="comment">/* 根据 `(x, y; width, height)'创建一个矩形*/</span></div><div class="line"> <span class="built_in">CGRect</span> <span class="built_in">CGRectMake</span>(<span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y, <span class="built_in">CGFloat</span> width,</div><div class="line">  <span class="built_in">CGFloat</span> height);</div></pre></td></tr></table></figure>
+<h2 id="获取几何参数"><a href="#获取几何参数" class="headerlink" title="获取几何参数"></a>获取几何参数</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 获取几何参数</span></div><div class="line"></div><div class="line"><span class="comment">/* 根据 `rect'参数，获得矩形最左边的x值 */</span></div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMinX</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/* 根据 `rect'参数，获得矩形x轴中心点的值*/</span></div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMidX</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/*根据 `rect'参数， 获取矩形最右端的x值*/</span></div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMaxX</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/*根据 `rect'参数， 获取矩形最顶端的y值*/</span></div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMinY</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/* 根据 `rect'参数，获得矩形y轴中心点的值*/</span></div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMidY</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/*根据 `rect'参数， 获取矩形最底端的y值*/</span></div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMaxY</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/*根据 `rect'参数， 获取矩形宽度*/</span></div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetWidth</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/*根据 `rect'参数， 获取矩形高度*/</span></div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetHeight</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/*根据一个矩形创建一个标准的矩形*/</span></div><div class="line"> <span class="built_in">CGRect</span> <span class="built_in">CGRectStandardize</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/* 创建一个内嵌的矩形，中心和rect参数的中心一样，将 rect 的坐标（origin）按照(dx,dy) 进行平移，然后将 rect 的大小（size） 宽度缩小2倍的 dx，高度缩小2倍的 dy. */</span></div><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectInset</span>(<span class="built_in">CGRect</span> rect, <span class="built_in">CGFloat</span> dx, <span class="built_in">CGFloat</span> dy)</div><div class="line"></div><div class="line"><span class="comment">/* 根据`rect' 参数，返回四个参数都是整数的矩形 */</span></div><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectIntegral</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/* 返回 `r1' 和 `r2'并集*/</span></div><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectUnion</span>(<span class="built_in">CGRect</span> r1, <span class="built_in">CGRect</span> r2)</div><div class="line"></div><div class="line"><span class="comment">/* 返回 `r1' 和 `r2'交集，如果没有交集返回CGRectNull */</span></div><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectIntersection</span>(<span class="built_in">CGRect</span> r1, <span class="built_in">CGRect</span> r2)</div><div class="line"></div><div class="line"><span class="comment">/* 返回一个矩形，偏移量相对于rect，根据进行平移 */</span></div><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectOffset</span>(<span class="built_in">CGRect</span> rect, <span class="built_in">CGFloat</span> dx, <span class="built_in">CGFloat</span> dy)</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> 将一个 CGRect 切割成两个 CGRect</span></div><div class="line"><span class="comment"> @param rect 原矩形</span></div><div class="line"><span class="comment"> @param slice 切割的 CGRect 的指针</span></div><div class="line"><span class="comment"> @param remainder 切割后剩下的 CGRect 的指针</span></div><div class="line"><span class="comment"> @param amount 切割的大小，是edge开始计算的方向</span></div><div class="line"><span class="comment"> @param edge   CGRectMinXEdge(从x的最小处进行垂直分割)、  CGRectMinYEdge(从y的最小处进行水平分割)、CGRectMaxXEdge(从x最大处进行垂直分割)、 CGRectMaxYEdge(从y最大处进行水平分割)</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">void</span> <span class="built_in">CGRectDivide</span>(<span class="built_in">CGRect</span> rect, <span class="built_in">CGRect</span> *  slice,</div><div class="line">    <span class="built_in">CGRect</span> *  remainder, <span class="built_in">CGFloat</span> amount, <span class="built_in">CGRectEdge</span> edge)</div></pre></td></tr></table></figure>
+<h2 id="判断几何"><a href="#判断几何" class="headerlink" title="判断几何"></a>判断几何</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - 判断几何</span></div><div class="line"><span class="comment">/* 如果 `point1' 和`point2' 相等返回YES, 否则返回NO*/</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGPointEqualToPoint</span>(<span class="built_in">CGPoint</span> point1, <span class="built_in">CGPoint</span> point2)</div><div class="line"></div><div class="line"><span class="comment">/* 如果`size1' 和 `size2' 相等返回YES, 否则返回NO */</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGSizeEqualToSize</span>(<span class="built_in">CGSize</span> size1, <span class="built_in">CGSize</span> size2)</div><div class="line"></div><div class="line"><span class="comment">/* 如果`rect1' 和 `rect2'  相等返回YES, 否则返回NO */</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectEqualToRect</span>(<span class="built_in">CGRect</span> rect1, <span class="built_in">CGRect</span> rect2)</div><div class="line"></div><div class="line"><span class="comment">/* 如果`rect'为空返回YES, 否则返回NO */</span></div><div class="line"> <span class="keyword">bool</span> <span class="built_in">CGRectIsEmpty</span>(<span class="built_in">CGRect</span> rect);</div><div class="line"></div><div class="line"><span class="comment">/* 如果 `rect' 为null返回YES, 否则返回NO */</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectIsNull</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"></div><div class="line"><span class="comment">/* 如果 `rect' 是无限矩形返回YES, 否则返回NO */</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectIsInfinite</span>(<span class="built_in">CGRect</span> rect);</div><div class="line"></div><div class="line"><span class="comment">/* 判断点是否在矩形内*/</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectContainsPoint</span>(<span class="built_in">CGRect</span> rect, <span class="built_in">CGPoint</span> point)</div><div class="line"></div><div class="line"><span class="comment">/* 判断矩形1是否包含矩形2*/</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectContainsRect</span>(<span class="built_in">CGRect</span> rect1, <span class="built_in">CGRect</span> rect2)</div><div class="line"></div><div class="line"><span class="comment">/* 判断矩形1和矩形2是否相交*/</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectIntersectsRect</span>(<span class="built_in">CGRect</span> rect1, <span class="built_in">CGRect</span> rect2)</div></pre></td></tr></table></figure>
+<h2 id="CGRectInset-与-CGRectOffset的区别"><a href="#CGRectInset-与-CGRectOffset的区别" class="headerlink" title="CGRectInset 与 CGRectOffset的区别"></a>CGRectInset 与 CGRectOffset的区别</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><p>CGRectInset：对矩形进行平移和缩放两个操作</p>
+<p>CGRectOffset：只对矩形进行平移，不会改变其大小</p>
+<h3 id="计算过程-伪代码"><a href="#计算过程-伪代码" class="headerlink" title="计算过程(伪代码)"></a>计算过程(伪代码)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGRectInset</span>：</div><div class="line"><span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(x, y, width, height);</div><div class="line"><span class="built_in">CGRect</span> rectInset = <span class="built_in">CGRectInset</span>(rect, dx, dy);</div><div class="line">rectInset = <span class="built_in">CGRectMake</span>(dx, dy, (width - ( dx * <span class="number">2</span>)), (height - ( dy * <span class="number">2</span>)) );</div><div class="line"></div><div class="line"><span class="built_in">CGRectOffset</span>: </div><div class="line"><span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(x, y, width, height);</div><div class="line"><span class="built_in">CGRect</span> rectOffset = <span class="built_in">CGRectOffset</span>(rect, dx, dy);</div><div class="line">rectOffset = <span class="built_in">CGRectMake</span>((x + dx), (y + dy), width, height );</div></pre></td></tr></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>CGRectInset：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">30</span>);</div><div class="line"><span class="built_in">CGRect</span> rectInset = <span class="built_in">CGRectInset</span>(rect, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line"><span class="built_in">CGRect</span> bigRectInset = <span class="built_in">CGRectInset</span>(rect, <span class="number">-10</span>, <span class="number">-10</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"rectInset:%@ \n bigRectInset:%@"</span>, <span class="built_in">NSStringFromCGRect</span>(rectInset), <span class="built_in">NSStringFromCGRect</span>(bigRectInset));</div><div class="line"></div><div class="line"><span class="comment">// rectInset:&#123;&#123;10, 10&#125;, &#123;10, 10&#125;&#125;</span></div><div class="line"><span class="comment">// bigRectInset:&#123;&#123;-10, -10&#125;, &#123;50, 50&#125;&#125;</span></div></pre></td></tr></table></figure></p>
+<p>CGRectOffset:<br> <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">30</span>, <span class="number">30</span>);</div><div class="line"><span class="built_in">CGRect</span> rectOffset = <span class="built_in">CGRectOffset</span>(rect, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line"><span class="built_in">CGRect</span> leftRectOffset = <span class="built_in">CGRectOffset</span>(rect, <span class="number">-10</span>, <span class="number">-10</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"rectOffset:%@ \n leftRectOffset:%@"</span>, <span class="built_in">NSStringFromCGRect</span>(rectOffset), <span class="built_in">NSStringFromCGRect</span>(leftRectOffset));</div><div class="line"></div><div class="line"><span class="comment">// rectOffset:&#123;&#123;20, 20&#125;, &#123;30, 30&#125;&#125;</span></div><div class="line"><span class="comment">// leftRectOffset:&#123;&#123;0, 0&#125;, &#123;30, 30&#125;&#125;</span></div></pre></td></tr></table></figure></p>
+<h2 id="CGRectDivide"><a href="#CGRectDivide" class="headerlink" title="CGRectDivide"></a>CGRectDivide</h2><p>用来分割矩形，参数rect是源矩形，slice和remainder是分割后的两部分矩形，amount是分割线，edge是分割选项。</p>
+<h3 id="edge分割方式"><a href="#edge分割方式" class="headerlink" title="edge分割方式"></a>edge分割方式</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">CF_ENUM</span>(uint32_t, <span class="built_in">CGRectEdge</span>) &#123;</div><div class="line">  <span class="comment">//从x的最小处进行垂直分割</span></div><div class="line">  <span class="built_in">CGRectMinXEdge</span>, </div><div class="line">  <span class="comment">//从y的最小处进行水平分割</span></div><div class="line">  <span class="built_in">CGRectMinYEdge</span>, </div><div class="line">  <span class="comment">//从x最大处进行垂直分割</span></div><div class="line">  <span class="built_in">CGRectMaxXEdge</span>,</div><div class="line">  <span class="comment">//从y最大处进行水平分割</span></div><div class="line">  <span class="built_in">CGRectMaxYEdge</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="计算过程-伪代码-1"><a href="#计算过程-伪代码-1" class="headerlink" title="计算过程(伪代码)"></a>计算过程(伪代码)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(x, y, width, height);</div><div class="line"><span class="built_in">CGRectDivide</span>(rect, &amp;slice,</div><div class="line">             &amp;remainder, amount, edge);</div><div class="line"><span class="keyword">switch</span> (edge) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="built_in">CGRectMinXEdge</span>: &#123;</div><div class="line">        *slice = <span class="built_in">CGRectMake</span>(x, y, amount, height);</div><div class="line">        *remainder = <span class="built_in">CGRectMake</span>(x + amount, y, width - amount, height);</div><div class="line">    &#125;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="built_in">CGRectMaxXEdge</span>: &#123;</div><div class="line">        *slice = <span class="built_in">CGRectMake</span>(width - amount, y, amount, height);</div><div class="line">        *remainder = <span class="built_in">CGRectMake</span>(x, y, width - amount, height);</div><div class="line">    &#125;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="built_in">CGRectMinYEdge</span>: &#123;</div><div class="line">        *slice = <span class="built_in">CGRectMake</span>(x, y, width, amount);</div><div class="line">        *remainder = <span class="built_in">CGRectMake</span>(x, y + amount, width, height - amount);</div><div class="line">    &#125;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="built_in">CGRectMaxYEdge</span>: &#123;</div><div class="line">        *slice = <span class="built_in">CGRectMake</span>(width, y - amount, width, amount);</div><div class="line">        *remainder = <span class="built_in">CGRectMake</span>(x, y, width, height - amount);</div><div class="line">    &#125;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGRect</span> slice;</div><div class="line"><span class="built_in">CGRect</span> remainder;</div><div class="line"><span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGRectDivide</span>(rect, &amp;slice, &amp;remainder, <span class="number">50</span>, <span class="built_in">CGRectMinXEdge</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"slice:%@ \n remainder:%@"</span>, <span class="built_in">NSStringFromCGRect</span>(slice), <span class="built_in">NSStringFromCGRect</span>(remainder));</div><div class="line"></div><div class="line"><span class="comment">// CGRectMinXEdge</span></div><div class="line"><span class="comment">// slice:&#123;&#123;0, 0&#125;, &#123;50, 200&#125;&#125;</span></div><div class="line"><span class="comment">// remainder:&#123;&#123;50, 0&#125;, &#123;150, 200&#125;&#125;</span></div><div class="line"></div><div class="line"><span class="comment">// CGRectMaxXEdge</span></div><div class="line"><span class="comment">// slice:&#123;&#123;150, 0&#125;, &#123;50, 200&#125;&#125;</span></div><div class="line"><span class="comment">// remainder:&#123;&#123;0, 0&#125;, &#123;150, 200&#125;&#125;</span></div><div class="line"></div><div class="line"><span class="comment">// CGRectMinYEdge</span></div><div class="line"><span class="comment">// slice:&#123;&#123;0, 0&#125;, &#123;200, 50&#125;&#125;</span></div><div class="line"><span class="comment">// remainder:&#123;&#123;0, 50&#125;, &#123;200, 150&#125;&#125;</span></div><div class="line"></div><div class="line"><span class="comment">// CGRectMaxYEdge</span></div><div class="line"><span class="comment">// slice:&#123;&#123;0, 150&#125;, &#123;200, 50&#125;&#125;</span></div><div class="line"><span class="comment">// remainder:&#123;&#123;0, 0&#125;, &#123;200, 150&#125;&#125;</span></div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在没有对CGGeometry进行深入的了解时，只会用到平时常用的几个方法，可是深入了解后还是会发现有很多实用而自己却一直不知道的方法。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/API/" rel="tag"># API</a>
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/20/iOS 拉伸图片/" rel="next" title="iOS 拉伸图片">
+                <i class="fa fa-chevron-left"></i> iOS 拉伸图片
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/11/iOS-GCD系列之dispatch_queue_t/" rel="prev" title="iOS-GCD系列之dispatch_queue_t">
+                iOS-GCD系列之dispatch_queue_t <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/avatar.jpg"
+                alt="Wynter" />
+            
+              <p class="site-author-name" itemprop="name">Wynter</p>
+              <p class="site-description motion-element" itemprop="description">这个人很懒，什么都没有留下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wynter.wang" title="Wynter" target="_blank">Wynter</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体"><span class="nav-number">1.</span> <span class="nav-text">结构体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局常量"><span class="nav-number">2.</span> <span class="nav-text">全局常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取几何参数"><span class="nav-number">3.</span> <span class="nav-text">获取几何参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断几何"><span class="nav-number">4.</span> <span class="nav-text">判断几何</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CGRectInset-与-CGRectOffset的区别"><span class="nav-number">5.</span> <span class="nav-text">CGRectInset 与 CGRectOffset的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念："><span class="nav-number">5.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算过程-伪代码"><span class="nav-number">5.2.</span> <span class="nav-text">计算过程(伪代码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">5.3.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CGRectDivide"><span class="nav-number">6.</span> <span class="nav-text">CGRectDivide</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#edge分割方式"><span class="nav-number">6.1.</span> <span class="nav-text">edge分割方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算过程-伪代码-1"><span class="nav-number">6.2.</span> <span class="nav-text">计算过程(伪代码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-1"><span class="nav-number">6.3.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wynter</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyt5Xs64o';
+      var conf = '924dd45ead9c6c1d9d02c43910875642';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("cvynwUyHvBDWPrt3pSeYAH95-gzGzoHsz", "HJb7JjFIaJY0jb8D2nyy9cm6");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
