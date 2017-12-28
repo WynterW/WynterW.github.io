@@ -66,6 +66,26 @@
 
     
   <url>
+    <loc>https://wynter.wang/2017/11/17/Mac%20%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90/</loc>
+    <lastmod>2017-11-17T09:48:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac 修改文件读写权限</title>
+        <pubTime>2017-11-17T11:13:16.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="blog" url="https://wynter.wang/categories/blog/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wynter.wang/2017/05/21/StoryBoard%E4%BD%BF%E7%94%A8%E4%B9%8B%E9%A1%B5%E9%9D%A2%E4%BC%A0%E5%80%BC/</loc>
     <lastmod>2017-11-01T07:48:20.000Z</lastmod>
     <data>
@@ -519,12 +539,12 @@
 
     
   <url>
-    <loc>https://wynter.wang/2017/02/06/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIAlertView/</loc>
+    <loc>https://wynter.wang/2017/02/06/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIAlertController/</loc>
     <lastmod>2017-02-06T07:10:54.000Z</lastmod>
     <data>
         <display>
-        <title>iOS-UIKit框架学习—UIAlertView</title>
-        <pubTime>2017-02-06T06:49:57.000Z</pubTime>
+        <title>iOS-UIKit框架学习—UIAlertController</title>
+        <pubTime>2017-02-06T06:50:31.000Z</pubTime>
         
         <tag>API</tag>
          
@@ -541,12 +561,12 @@
 
     
   <url>
-    <loc>https://wynter.wang/2017/02/06/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIAlertController/</loc>
+    <loc>https://wynter.wang/2017/02/06/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIAlertView/</loc>
     <lastmod>2017-02-06T07:10:54.000Z</lastmod>
     <data>
         <display>
-        <title>iOS-UIKit框架学习—UIAlertController</title>
-        <pubTime>2017-02-06T06:50:31.000Z</pubTime>
+        <title>iOS-UIKit框架学习—UIAlertView</title>
+        <pubTime>2017-02-06T06:49:57.000Z</pubTime>
         
         <tag>API</tag>
          
