@@ -400,10 +400,10 @@
       
 
       
-        <p>上一篇文章 <a href="http://wynter.wang/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客/">阿里云虚拟机下搭建Typecho、WordPress博客</a>  简单的记录了<a href="http://typecho.org/" target="_blank" rel="external">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="external">WordPress</a>下搭建个人博客过程，今天这篇文章记录下<a href="https://hexo.io" target="_blank" rel="external">Hexo</a>搭建个人博客的过程，对于此平台的介绍分析<a href="http://wynter.wang/2017/01/12/个人博客搭建前期工作/">个人博客搭建前期工作</a>这篇文章也有说道。</p>
+        <p>上一篇文章 <a href="http://wynter.wang/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客/">阿里云虚拟机下搭建Typecho、WordPress博客</a>  简单的记录了<a href="http://typecho.org/" target="_blank" rel="noopener">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="noopener">WordPress</a>下搭建个人博客过程，今天这篇文章记录下<a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>搭建个人博客的过程，对于此平台的介绍分析<a href="http://wynter.wang/2017/01/12/个人博客搭建前期工作/">个人博客搭建前期工作</a>这篇文章也有说道。</p>
 <a id="more"></a>
 <h2 id="配置-Git"><a href="#配置-Git" class="headerlink" title="配置 Git"></a>配置 Git</h2><ul>
-<li>安装 <a href="https://git-scm.com/" target="_blank" rel="external">Git</a>：下载安装后，注册 <code>GitHub</code> 账号并配置 <code>Git</code></li>
+<li>安装 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>：下载安装后，注册 <code>GitHub</code> 账号并配置 <code>Git</code></li>
 <li>创建 GitHub Repository：Repository 名字必须是 <code>你的 GitHub 名.GitHub.io</code></li>
 </ul>
 <h2 id="配置-SSH"><a href="#配置-SSH" class="headerlink" title="配置 SSH"></a>配置 SSH</h2><p>打开终端 ，输入<code>cd ~/.ssh</code>，如果果提示：<code>No such file or directory</code>说明未配置 <code>SSH</code></p>
@@ -418,13 +418,13 @@
 <li>本地仓库执行命令<code>git remote set-url origin &quot;你的仓库的url&quot;</code> ，配置完后可用<code>git remote -v</code> 查看结果</li>
 </ul>
 <h2 id="配置-hexo"><a href="#配置-hexo" class="headerlink" title="配置 hexo"></a>配置 hexo</h2><ul>
-<li>安装<a href="https://nodejs.org/en/" target="_blank" rel="external"> Node.js</a></li>
+<li>安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener"> Node.js</a></li>
 <li>安装 Hexo：<code>npm install hexo-deployer-git --save</code>，可用 <code>hexo -v</code>查看版本<br>可能安装过程并不是那么顺利，这个时候就需要到代理来安装：</li>
 <li>清除代理：<code>npm config delete http-proxy</code>和<code>npm config delete https-proxy</code></li>
 <li>指向国内镜像源：<code>npm config set registry http://registry.cnpmjs.org/</code></li>
 <li>创建 Hexo 文件夹：新建放置博客的文件夹，进入并执行命令<code>hexo init</code>。hexo 会在目标文件夹建立网站所需要的所有文件</li>
 <li>安装依赖包：<code>npm install</code></li>
-<li>部署：打开博客根目录下的 <code>_config.yml</code> 文件，修改配置: <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">官方配置文档</a><br>##把Hexo部署到 GitHub</li>
+<li>部署：打开博客根目录下的 <code>_config.yml</code> 文件，修改配置: <a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">官方配置文档</a><br>##把Hexo部署到 GitHub</li>
 <li>生成静态页面执行命令：<code>hexo generate</code> 或<code>hexo g</code></li>
 <li>启动本地服务器执行命令：<code>hexo server</code>或<code>hexo s</code>在浏览器中打开<code>http://localhost:4000/</code>，如果打开正常执行下一步。</li>
 <li>部署网站执行命令：<code>hexo deploy</code>或<code>hexo d</code></li>
@@ -442,7 +442,7 @@
 <li>等待 DNS 配置生效（10分钟左右）</li>
 <li>通过在浏览器中输入域名访问网站</li>
 </ul>
-<h2 id="配置HTTPS"><a href="#配置HTTPS" class="headerlink" title="配置HTTPS"></a>配置HTTPS</h2><p>为了使网站更全最好的方法就是使用HTTPS，使用HTTPS后也会让人感觉网站更专业点，瞬间提升逼格。我们这里选用第三方免费的证书来给自己的网站做HTTPS。推荐使用<a href="https://www.cloudflare.com" target="_blank" rel="external">CloudFlare</a> 和 <a href="https://netlify.com/" target="_blank" rel="external">Netlify</a> 这两个平台都提供了免费SSL证书，两者使用同样简单，但是 <a href="https://netlify.com/" target="_blank" rel="external">Netlify</a> 创建成功后会关联到你的github中<code>XXXX.github.io</code>的项目，以后每次 GitHub 的 push 操作都会自动触发 Netlify 重新编译部署，而且还会生成一个<code>xxx.netlify.com</code>的二级域名，同样也支持HTTPS。</p>
+<h2 id="配置HTTPS"><a href="#配置HTTPS" class="headerlink" title="配置HTTPS"></a>配置HTTPS</h2><p>为了使网站更全最好的方法就是使用HTTPS，使用HTTPS后也会让人感觉网站更专业点，瞬间提升逼格。我们这里选用第三方免费的证书来给自己的网站做HTTPS。推荐使用<a href="https://www.cloudflare.com" target="_blank" rel="noopener">CloudFlare</a> 和 <a href="https://netlify.com/" target="_blank" rel="noopener">Netlify</a> 这两个平台都提供了免费SSL证书，两者使用同样简单，但是 <a href="https://netlify.com/" target="_blank" rel="noopener">Netlify</a> 创建成功后会关联到你的github中<code>XXXX.github.io</code>的项目，以后每次 GitHub 的 push 操作都会自动触发 Netlify 重新编译部署，而且还会生成一个<code>xxx.netlify.com</code>的二级域名，同样也支持HTTPS。</p>
 <p>CloudFlare 配置：</p>
 <blockquote>
 <p>1、<code>Add a website</code> 填写域名如：<code>xxx.com</code>，检测DNS记录值<br>2、根据提示设置CloudFlare站点IP解析（等待10分钟左右）<br>3、选择CloudFlare免费加速<code>Free Website</code>方案</p>
@@ -491,7 +491,7 @@
 </tr>
 <tr>
 <td style="text-align:center"><code>hexo server</code></td>
-<td style="text-align:center">启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></td>
+<td style="text-align:center">启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></td>
 <td style="text-align:center"><code>hexo s</code></td>
 </tr>
 <tr>
@@ -640,7 +640,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -738,7 +738,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -406,20 +406,20 @@
       
         <p>今天记录下在阿里云虚拟机下搭建Tpyecho和WordPress两个平台，对是两个不同的平台。为什么把两个平台合并到一起介绍呢？我解释下因为两个平台的搭建过程、配置都很相似，并且这两个平台配置都很简单，不足以写两篇文章。下面开始平台搭建。</p>
 <a id="more"></a>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>平台下载地址：<a href="http://typecho.org/" target="_blank" rel="external">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="external">WordPress</a><br>文件上传工具：<a href="https://filezilla-project.org" target="_blank" rel="external">File Zilla</a></p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>平台下载地址：<a href="http://typecho.org/" target="_blank" rel="noopener">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="noopener">WordPress</a><br>文件上传工具：<a href="https://filezilla-project.org" target="_blank" rel="noopener">File Zilla</a></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Typecho不要配置。<br>WordPress下载下来后拷贝<code>wp-config-sample.php</code>文件，重新命名为<code>wp-config.php</code>，打开这两个配置文件设置如下：<br><img src="http://7xowiw.com1.z0.glb.clouddn.com/wp_config.png" alt=""><br>对应的数据库信息在：<code>控制台</code>-&gt;<code>云虚拟主机</code>-&gt;<code>管理</code>-&gt;<code>数据库信息</code>出现如下：<br><img src="http://7xowiw.com1.z0.glb.clouddn.com/mysql_info.png" alt=""></p>
 <blockquote>
 <p>注意：WordPress平台要求PHP 5.2.4以上版本，所以记得将主机PHP环境设置高于PHP 5.2.4 如图：<img src="http://7xowiw.com1.z0.glb.clouddn.com/PHP%E7%89%88%E6%9C%AC%E8%AE%BE%E7%BD%AE.png" alt=""></p>
 </blockquote>
 <h2 id="域名绑定服务器"><a href="#域名绑定服务器" class="headerlink" title="域名绑定服务器"></a>域名绑定服务器</h2><p>上篇<a href="https://wynter.wang/2017/01/12/个人博客搭建前期工作/">个人博客搭建前期工作</a>中介绍了域名、服务器的选择和购买，并且完成域名备案，如果没有域名备案还在进行中，那也没关系，因为在阿里购买虚拟机赠送了一个月的备案域名，只能用于网站的调试（哈哈，有点给阿里云打广告的嫌疑）。如果备案完成进入<code>控制台</code>-&gt;<code>域名</code>-&gt;<a href="http://wynter.wang">wynter.wang</a>点击后面的<code>解析</code>-&gt;设置网站解析点击<code>立即解析</code>，如果是购买阿里云的虚拟主机系统会自动检测到主机IP的地址，不是的话就手动设置其他主机的IP地址，然后点击<code>提交</code>，主机和域名绑定完成。</p>
-<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>使用<a href="https://filezilla-project.org" target="_blank" rel="external">File Zilla</a>工具将下载的<a href="http://typecho.org/" target="_blank" rel="external">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="external">WordPress</a>文件上传到服务器上的<code>htdocs</code>目录下</p>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>使用<a href="https://filezilla-project.org" target="_blank" rel="noopener">File Zilla</a>工具将下载的<a href="http://typecho.org/" target="_blank" rel="noopener">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="noopener">WordPress</a>文件上传到服务器上的<code>htdocs</code>目录下</p>
 <h2 id="数据库和网站配置"><a href="#数据库和网站配置" class="headerlink" title="数据库和网站配置"></a>数据库和网站配置</h2><ul>
-<li>文件上传文成之后，在浏览器中输入<a href="http://wynter.wang">wynter.wang</a>，会看到<a href="http://typecho.org/" target="_blank" rel="external">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="external">WordPress</a>的数据库配置和网站配置界面，按照说明填写即可。</li>
+<li>文件上传文成之后，在浏览器中输入<a href="http://wynter.wang">wynter.wang</a>，会看到<a href="http://typecho.org/" target="_blank" rel="noopener">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="noopener">WordPress</a>的数据库配置和网站配置界面，按照说明填写即可。</li>
 <li>配置完成后就会看到Hello world界面了。</li>
 </ul>
 <h2 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h2><ul>
-<li><a href="https://typecho.me" target="_blank" rel="external">Typecho</a>：主要是一些主题、插件，需要手动放到<code>themes</code>文件下，然后进入后台主题选择启用。</li>
-<li><a href="https://cn.wordpress.org/themes/" target="_blank" rel="external">WordPress</a>：也可以通过后台主题管理下载主题，直接应用非常方便。</li>
+<li><a href="https://typecho.me" target="_blank" rel="noopener">Typecho</a>：主要是一些主题、插件，需要手动放到<code>themes</code>文件下，然后进入后台主题选择启用。</li>
+<li><a href="https://cn.wordpress.org/themes/" target="_blank" rel="noopener">WordPress</a>：也可以通过后台主题管理下载主题，直接应用非常方便。</li>
 </ul>
 
       
@@ -553,7 +553,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -651,7 +651,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

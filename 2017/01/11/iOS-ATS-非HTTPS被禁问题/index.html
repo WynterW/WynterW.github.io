@@ -408,7 +408,7 @@
 <a id="more"></a>
 <p>2016年6月WWDC之后，便传出从2017年1月1日起苹果提出所有新提交的App不允许使用<code>NSAllowsArbitraryLoads</code>来绕过ATS的限制，也就是说强制我们用HTTPS，如果不这样的话提交App可能会被拒绝。在2016年即将结束之际，我们也网站和APP也开始支持HTTPS的工作，但是之前也有传言说2017年1月1日App Store不会强制支持HTTPS，事实确实如此，下面苹果官网的一条公告：</p>
 <blockquote>
-<p><a href="https://developer.apple.com/news/?id=12212016b" target="_blank" rel="external">Supporting App Transport Security</a><br>App Transport Security (ATS), introduced in iOS 9 and OS X v10.11, improves user security and privacy by requiring apps to use secure network connections over HTTPS. At WWDC 2016 we announced that apps submitted to the App Store will be required to support ATS at the end of the year. To give you additional time to prepare, this deadline has been extended and we will provide another update when a new deadline is confirmed. Learn more about ATS.</p>
+<p><a href="https://developer.apple.com/news/?id=12212016b" target="_blank" rel="noopener">Supporting App Transport Security</a><br>App Transport Security (ATS), introduced in iOS 9 and OS X v10.11, improves user security and privacy by requiring apps to use secure network connections over HTTPS. At WWDC 2016 we announced that apps submitted to the App Store will be required to support ATS at the end of the year. To give you additional time to prepare, this deadline has been extended and we will provide another update when a new deadline is confirmed. Learn more about ATS.</p>
 </blockquote>
 <p>不管怎么说我们还是要支持HTTPS，原因三点：</p>
 <ul>
@@ -430,7 +430,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSAppTransportSecurity<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSExceptionDomains<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>qq.com<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSIncludesSubdomains<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSExceptionRequiresForwardSecrecy<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">false</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSExceptionAllowsInsecureHTTPLoads<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">true</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="问题二："><a href="#问题二：" class="headerlink" title="问题二："></a>问题二：</h3><ul>
 <li>在<code>NSAppTransportSecurity</code>下添加<code>NSAllowsArbitraryLoads</code>类型<code>Boolean</code>,值设为<code>YES</code>，调试找到非HTTPS接口后记得改成<code>NO</code>。</li>
-<li>使用<a href="https://www.charlesproxy.com" target="_blank" rel="external">Charles</a>抓包，详细使用教程请查看：<a href="http://blog.devtang.com/2015/11/14/charles-introduction/#u5B89_u88C5_u8BC1_u4E66" target="_blank" rel="external">Charles 从入门到精通</a></li>
+<li>使用<a href="https://www.charlesproxy.com" target="_blank" rel="noopener">Charles</a>抓包，详细使用教程请查看：<a href="http://blog.devtang.com/2015/11/14/charles-introduction/#u5B89_u88C5_u8BC1_u4E66" target="_blank" rel="noopener">Charles 从入门到精通</a></li>
 <li>把抓到的一些非HTTPS的接口添加到白名单中，添加方法请看问题一解决办法</li>
 </ul>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><blockquote>
@@ -566,7 +566,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -664,7 +664,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
