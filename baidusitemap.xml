@@ -4,6 +4,86 @@
 
     
   <url>
+    <loc>https://wynter.wang/2018/05/11/SVN%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%B1%87%E6%80%BB/</loc>
+    <lastmod>2018-06-08T07:46:21.880Z</lastmod>
+    <data>
+        <display>
+        <title>SVN命令使用汇总</title>
+        <pubTime>2018-05-11T06:13:02.000Z</pubTime>
+        
+        <tag>API</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://wynter.wang/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wynter.wang/2018/05/11/iOS%20%E8%87%AA%E5%AE%9A%E4%B9%89-%E8%8B%B9%E6%96%B9%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-06-08T07:44:22.097Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 自定义-苹方字体的使用</title>
+        <pubTime>2018-05-11T06:13:02.000Z</pubTime>
+        
+        <tag>blog</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://wynter.wang/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wynter.wang/2018/05/11/iOS%20%E4%BD%BF%E7%94%A8AFNetworking%E4%BC%A0%E8%BE%93%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <lastmod>2018-06-08T07:43:57.872Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 使用AFNetworking传输字符串</title>
+        <pubTime>2018-05-11T06:13:02.000Z</pubTime>
+        
+        <tag>blog</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://wynter.wang/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wynter.wang/2018/05/11/iOS%20%E6%A8%A1%E5%9E%8B%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D/</loc>
+    <lastmod>2018-06-08T07:43:26.388Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 模型数组深拷贝</title>
+        <pubTime>2018-05-11T06:13:02.000Z</pubTime>
+        
+        <tag>blog</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://wynter.wang/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wynter.wang/2017/12/15/iOS-GCD%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BB%BB%E5%8A%A1%E7%BB%84dispatch_group_t/</loc>
     <lastmod>2018-01-16T01:36:49.000Z</lastmod>
     <data>
@@ -625,12 +705,12 @@
 
     
   <url>
-    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIActivityIndicatorView/</loc>
+    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIToolbar/</loc>
     <lastmod>2017-01-25T03:48:42.000Z</lastmod>
     <data>
         <display>
-        <title>iOS UIKit框架学习—UIActivityIndicatorView</title>
-        <pubTime>2017-01-25T03:16:11.000Z</pubTime>
+        <title>iOS UIKit框架学习—UIToolbar</title>
+        <pubTime>2017-01-25T03:17:12.000Z</pubTime>
         
         <tag>API</tag>
          
@@ -647,12 +727,12 @@
 
     
   <url>
-    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIToolbar/</loc>
+    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIActivityIndicatorView/</loc>
     <lastmod>2017-01-25T03:48:42.000Z</lastmod>
     <data>
         <display>
-        <title>iOS UIKit框架学习—UIToolbar</title>
-        <pubTime>2017-01-25T03:17:12.000Z</pubTime>
+        <title>iOS UIKit框架学习—UIActivityIndicatorView</title>
+        <pubTime>2017-01-25T03:16:11.000Z</pubTime>
         
         <tag>API</tag>
          
