@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Wynter">
 <meta property="og:description" content="在工作中我们经常会用到一些命令来完成指定工作，最常用的还是Git和SVN一些更新、提交操作，虽然命令不是很复杂，但是肯定会有三个步骤： 1、打开终端；2、cd到指定目录下；3、执行一系列相关操作命令。 一些常用的操作我们就可以制作一个脚本来简化步骤。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-25T10:57:31.954Z">
+<meta property="og:updated_time" content="2018-07-26T00:58:11.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac 制作一个可执行脚本">
 <meta name="twitter:description" content="在工作中我们经常会用到一些命令来完成指定工作，最常用的还是Git和SVN一些更新、提交操作，虽然命令不是很复杂，但是肯定会有三个步骤： 1、打开终端；2、cd到指定目录下；3、执行一系列相关操作命令。 一些常用的操作我们就可以制作一个脚本来简化步骤。">
@@ -404,25 +404,25 @@
 <p>1、打开终端；<br>2、cd到指定目录下；<br>3、执行一系列相关操作命令。</p>
 <p>一些常用的操作我们就可以制作一个脚本来简化步骤。</p>
 <a id="more"></a>
-<h2 id="制作一个可执行脚本，分为以下步骤："><a href="#制作一个可执行脚本，分为以下步骤：" class="headerlink" title="制作一个可执行脚本，分为以下步骤："></a>制作一个可执行脚本，分为以下步骤：</h2><ul>
+<h3 id="制作一个可执行脚本，分为以下步骤："><a href="#制作一个可执行脚本，分为以下步骤：" class="headerlink" title="制作一个可执行脚本，分为以下步骤："></a>制作一个可执行脚本，分为以下步骤：</h3><ul>
 <li><p>创建脚本文件，在终端中执行（文件想要保存在哪里在那个目录下执行命令）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch fileName.sh</div></pre></td></tr></table></figure>
 </li>
 <li><p>给脚本添加可执行权限，具体可以参考<a href="https://www.jianshu.com/p/40ae805472bc" target="_blank" rel="noopener">Mac 修改文件读写权限</a></p>
-</li>
-</ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 755 fileName.sh</div></pre></td></tr></table></figure>
-<ul>
-<li>使用终端cd到脚本所在目录执行<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./fileName.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用终端cd到脚本所在目录执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./fileName.sh</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h3><p>以下是我正在使用一个简易脚本，可以用它来实现：</p>
 <p>1、将写好的博客生成静态文件并部署<br>2、备份博客所有文件到git，防止本地文件丢失</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>！ /bin/bash</div><div class="line"></div><div class="line"><span class="meta">#</span> dirname $0，取得当前执行的脚本文件的父目录</div><div class="line">basepath=$(cd `dirname $0`; pwd)</div><div class="line"></div><div class="line"><span class="meta">#</span>进入到hexo所在的目录</div><div class="line">cd $&#123;basepath&#125;/Wynter.github.io</div><div class="line"></div><div class="line"><span class="meta">#</span> 打印当前路径</div><div class="line">currentPath=$(pwd)</div><div class="line">echo "当前文件夹路径: $currentPath"</div><div class="line"></div><div class="line"><span class="meta">#</span> 生成静态文件并部署</div><div class="line">echo "start update hexo"</div><div class="line">hexo d -g</div><div class="line">echo "end hexo"</div><div class="line"></div><div class="line"><span class="meta">#</span> 返回到上级目录</div><div class="line">cd ..</div><div class="line"></div><div class="line"><span class="meta">#</span> 拉去git上最新数据</div><div class="line">git pull</div><div class="line"></div><div class="line"><span class="meta">#</span> 备份博客所有文件到git</div><div class="line">echo "start update git"</div><div class="line">git add .</div><div class="line">git commit -m "update blog"</div><div class="line">git push origin master</div><div class="line">date=$(date +%Y%m%d%H%M)</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">！ /bin/bash</span></div><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"> dirname <span class="variable">$0</span>，取得当前执行的脚本文件的父目录</span></div><div class="line">basepath=$(cd `dirname $0`; pwd)</div><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash">进入到hexo所在的目录</span></div><div class="line">cd $&#123;basepath&#125;/Wynter.github.io</div><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"> 打印当前路径</span></div><div class="line">currentPath=$(pwd)</div><div class="line">echo "当前文件夹路径: $currentPath"</div><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"> 生成静态文件并部署</span></div><div class="line">echo "start update hexo"</div><div class="line">hexo d -g</div><div class="line">echo "end hexo"</div><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"> 返回到上级目录</span></div><div class="line">cd ..</div><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"> 拉去git上最新数据</span></div><div class="line">git pull</div><div class="line"></div><div class="line"><span class="meta">#</span><span class="bash"> 备份博客所有文件到git</span></div><div class="line">echo "start update git"</div><div class="line">git add .</div><div class="line">git commit -m "update blog"</div><div class="line">git push origin master</div><div class="line">date=$(date +%Y%m%d%H%M)</div></pre></td></tr></table></figure>
 <p>在iOS应用开发完成后，经常要使用Xcode打包给测试人员，不仅编译时间长，期间还不能敲代码，编译完成后还需要手动导入，发给测试人员等一系列操作，这完全可以使用脚本来实现来提升工作效率。</p>
 <p>附上一个<a href="https://github.com/stackhou/AutoPacking-iOS" target="_blank" rel="noopener">iOS自动打包脚本传送门</a>。</p>
-<h2 id="答疑解惑"><a href="#答疑解惑" class="headerlink" title="答疑解惑"></a>答疑解惑</h2><h5 id="既然都是脚本，为什么还要在终端里-fileName-sh才能执行，这so不智能了吧！为什么不能双击执行呢？"><a href="#既然都是脚本，为什么还要在终端里-fileName-sh才能执行，这so不智能了吧！为什么不能双击执行呢？" class="headerlink" title="既然都是脚本，为什么还要在终端里./fileName.sh才能执行，这so不智能了吧！为什么不能双击执行呢？"></a>既然都是脚本，为什么还要在终端里<code>./fileName.sh</code>才能执行，这so不智能了吧！为什么不能双击执行呢？</h5><p>它的确是可执行脚本，因为脚本的后缀是.sh，而我们的mac中刚好有应用能识别并打开.sh结尾的文件，如果删除电脑上所有能识别.sh的应用，再次双击脚本就直接执行脚本了。<br><br>显然删除这么多应用是不现实的，我们可以在创建的时候不给文件添加后缀来实现双击执行脚本的目的。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>可以说没有什么操作是一个脚本解决不了的，如果解决不了那就再来一个。</p>
+<h3 id="答疑解惑"><a href="#答疑解惑" class="headerlink" title="答疑解惑"></a>答疑解惑</h3><p><strong>既然都是脚本，为什么还要在终端里<code>./fileName.sh</code>才能执行，这so不智能了吧！为什么不能双击执行呢？</strong></p>
+<p>它的确是可执行脚本，因为脚本的后缀是.sh，而我们的mac中刚好有应用能识别并打开.sh结尾的文件，如果删除电脑上所有能识别.sh的应用，再次双击脚本就直接执行脚本了。<br><br>显然删除这么多应用是不现实的，我们可以在创建的时候不给文件添加后缀来实现双击执行脚本的目的。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>可以说没有什么操作是一个脚本解决不了的，如果解决不了那就再来一个。</p>
 
       
     </div>
@@ -453,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/11/iOS 自定义-苹方字体的使用/" rel="next" title="iOS 自定义-苹方字体的使用">
-                <i class="fa fa-chevron-left"></i> iOS 自定义-苹方字体的使用
+              <a href="/2018/05/11/SVN命令使用汇总/" rel="next" title="SVN命令使用汇总">
+                <i class="fa fa-chevron-left"></i> SVN命令使用汇总
               </a>
             
           </div>
@@ -625,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#制作一个可执行脚本，分为以下步骤："><span class="nav-number">1.</span> <span class="nav-text">制作一个可执行脚本，分为以下步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单应用"><span class="nav-number">1.1.</span> <span class="nav-text">简单应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答疑解惑"><span class="nav-number">2.</span> <span class="nav-text">答疑解惑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#既然都是脚本，为什么还要在终端里-fileName-sh才能执行，这so不智能了吧！为什么不能双击执行呢？"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">既然都是脚本，为什么还要在终端里./fileName.sh才能执行，这so不智能了吧！为什么不能双击执行呢？</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#制作一个可执行脚本，分为以下步骤："><span class="nav-number">1.</span> <span class="nav-text">制作一个可执行脚本，分为以下步骤：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单应用"><span class="nav-number">2.</span> <span class="nav-text">简单应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#答疑解惑"><span class="nav-number">3.</span> <span class="nav-text">答疑解惑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
