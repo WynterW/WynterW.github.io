@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="blog," />
+  <meta name="keywords" content="Hexo,Typecho,WordPress," />
 
 
 
@@ -81,18 +81,22 @@
 
 
 
-<meta name="description" content="通常需要实现对模型的拷贝都需要先实现NSCopying、 NSMutableCopying协议，在这里我一直有个误区，以为实现了copy协议，数组使用拷贝操作都会对数组内实现copy协议的对象进行拷贝。">
-<meta name="keywords" content="blog">
+<meta name="description" content="今天记录下在阿里云虚拟机下搭建Tpyecho和WordPress两个平台，对是两个不同的平台。为什么把两个平台合并到一起介绍呢？我解释下因为两个平台的搭建过程、配置都很相似，并且这两个平台配置都很简单，不足以写两篇文章。下面开始平台搭建。">
+<meta name="keywords" content="Hexo,Typecho,WordPress">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 模型数组深拷贝">
-<meta property="og:url" content="https://wynter.wang/2018/05/11/iOS 模型数组深拷贝/index.html">
+<meta property="og:title" content="阿里云虚拟机下搭建Typecho、WordPress博客">
+<meta property="og:url" content="https://wynter.wang/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客 2 2 2/index.html">
 <meta property="og:site_name" content="Wynter">
-<meta property="og:description" content="通常需要实现对模型的拷贝都需要先实现NSCopying、 NSMutableCopying协议，在这里我一直有个误区，以为实现了copy协议，数组使用拷贝操作都会对数组内实现copy协议的对象进行拷贝。">
+<meta property="og:description" content="今天记录下在阿里云虚拟机下搭建Tpyecho和WordPress两个平台，对是两个不同的平台。为什么把两个平台合并到一起介绍呢？我解释下因为两个平台的搭建过程、配置都很相似，并且这两个平台配置都很简单，不足以写两篇文章。下面开始平台搭建。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-08T07:43:26.389Z">
+<meta property="og:image" content="http://7xowiw.com1.z0.glb.clouddn.com/wp_config.png">
+<meta property="og:image" content="http://7xowiw.com1.z0.glb.clouddn.com/mysql_info.png">
+<meta property="og:image" content="http://7xowiw.com1.z0.glb.clouddn.com/PHP%E7%89%88%E6%9C%AC%E8%AE%BE%E7%BD%AE.png">
+<meta property="og:updated_time" content="2017-01-17T10:43:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 模型数组深拷贝">
-<meta name="twitter:description" content="通常需要实现对模型的拷贝都需要先实现NSCopying、 NSMutableCopying协议，在这里我一直有个误区，以为实现了copy协议，数组使用拷贝操作都会对数组内实现copy协议的对象进行拷贝。">
+<meta name="twitter:title" content="阿里云虚拟机下搭建Typecho、WordPress博客">
+<meta name="twitter:description" content="今天记录下在阿里云虚拟机下搭建Tpyecho和WordPress两个平台，对是两个不同的平台。为什么把两个平台合并到一起介绍呢？我解释下因为两个平台的搭建过程、配置都很相似，并且这两个平台配置都很简单，不足以写两篇文章。下面开始平台搭建。">
+<meta name="twitter:image" content="http://7xowiw.com1.z0.glb.clouddn.com/wp_config.png">
 
 
 
@@ -122,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://wynter.wang/2018/05/11/iOS 模型数组深拷贝/"/>
+  <link rel="canonical" href="https://wynter.wang/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客 2 2 2/"/>
 
 
 
 
 
-  <title>iOS 模型数组深拷贝 | Wynter</title>
+  <title>阿里云虚拟机下搭建Typecho、WordPress博客 | Wynter</title>
   
 
 
@@ -289,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2018/05/11/iOS 模型数组深拷贝/">
+    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客 2 2 2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wynter">
@@ -306,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS 模型数组深拷贝</h1>
+          <h1 class="post-title" itemprop="name headline">阿里云虚拟机下搭建Typecho、WordPress博客</h1>
         
 
         <div class="post-meta">
@@ -318,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T14:13:02+08:00">
-                2018-05-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-17T16:13:16+08:00">
+                2017-01-17
               </time>
             
 
@@ -341,8 +345,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
                   </a>
                 </span>
 
@@ -360,8 +364,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2018/05/11/iOS 模型数组深拷贝/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/05/11/iOS 模型数组深拷贝/" itemprop="commentsCount"></span>
+                <a href="/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客 2 2 2/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客 2 2 2/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -369,7 +373,7 @@
 
           
           
-             <span id="/2018/05/11/iOS 模型数组深拷贝/" class="leancloud_visitors" data-flag-title="iOS 模型数组深拷贝">
+             <span id="/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客 2 2 2/" class="leancloud_visitors" data-flag-title="阿里云虚拟机下搭建Typecho、WordPress博客">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,17 +404,23 @@
       
 
       
-        <p>通常需要实现对模型的拷贝都需要先实现<code>NSCopying、 NSMutableCopying</code>协议，在这里我一直有个误区，以为实现了copy协议，数组使用拷贝操作都会对数组内实现copy协议的对象进行拷贝。<br><a id="more"></a></p>
-<h3 id="创建两个model并实现copying协议"><a href="#创建两个model并实现copying协议" class="headerlink" title="创建两个model并实现copying协议"></a>创建两个model并实现copying协议</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Dog.h</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Dog</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCopying</span>, <span class="title">NSMutableCopying</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">// Dog.m</span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Dog</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">nonnull</span> <span class="keyword">id</span>)copyWithZone:(<span class="keyword">nullable</span> <span class="built_in">NSZone</span> *)zone &#123;</div><div class="line">    Dog *<span class="keyword">copy</span> = [[Dog allocWithZone:zone]init];</div><div class="line">    <span class="keyword">copy</span>.name = <span class="keyword">self</span>.name;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">copy</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">id</span>)mutableCopyWithZone:(<span class="built_in">NSZone</span> *)zone &#123;</div><div class="line">    Dog *<span class="keyword">copy</span> = [[Dog allocWithZone:zone]init];</div><div class="line">    <span class="keyword">copy</span>.name = <span class="keyword">self</span>.name;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">copy</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Person.h</span></div><div class="line"><span class="meta">#import <span class="meta-string">"Dog.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCopying</span>, <span class="title">NSMutableCopying</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> age;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) Dog *dog;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">// Person.m</span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">nonnull</span> <span class="keyword">id</span>)copyWithZone:(<span class="keyword">nullable</span> <span class="built_in">NSZone</span> *)zone &#123;</div><div class="line">    Person *<span class="keyword">copy</span> = [[Person allocWithZone:zone]init];</div><div class="line">    <span class="keyword">copy</span>.name = <span class="keyword">self</span>.name;</div><div class="line">    <span class="keyword">copy</span>.age = <span class="keyword">self</span>.age;</div><div class="line">    <span class="keyword">copy</span>.dog = [<span class="keyword">self</span>.dog <span class="keyword">copy</span>];</div><div class="line">    <span class="keyword">return</span> <span class="keyword">copy</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">id</span>)mutableCopyWithZone:(<span class="built_in">NSZone</span> *)zone &#123;</div><div class="line">    Person *<span class="keyword">copy</span> = [[Person allocWithZone:zone]init];</div><div class="line">    <span class="keyword">copy</span>.name = <span class="keyword">self</span>.name;</div><div class="line">    <span class="keyword">copy</span>.age = <span class="keyword">self</span>.age;</div><div class="line">    <span class="keyword">copy</span>.dog = [<span class="keyword">self</span>.dog <span class="keyword">copy</span>];</div><div class="line">    <span class="keyword">return</span> <span class="keyword">copy</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-<h3 id="对模型数组使用mutablCopy操作并不是深拷贝"><a href="#对模型数组使用mutablCopy操作并不是深拷贝" class="headerlink" title="对模型数组使用mutablCopy操作并不是深拷贝"></a>对模型数组使用mutablCopy操作并不是深拷贝</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSMutableArray</span> &lt;Person *&gt;*dataSourceAry = [<span class="built_in">NSMutableArray</span> new];</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</div><div class="line">    Dog *dog = [[Dog alloc]init];</div><div class="line">    dog.name = <span class="string">@"拉不拉多不多就拉倒"</span>;</div><div class="line">    </div><div class="line">    Person *item = [[Person alloc]init];</div><div class="line">    item.name = <span class="string">@"杰克"</span>;</div><div class="line">    item.age = <span class="number">18</span>;</div><div class="line">    item.dog = [dog <span class="keyword">copy</span>];</div><div class="line">    [dataSourceAry addObject:item];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">NSArray</span> &lt;Person *&gt;*array = [dataSourceAry mutableCopy];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"&lt;dataSourceAry: %@&gt;"</span>, dataSourceAry);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"&lt;array: %@&gt;"</span>, array);</div><div class="line"></div><div class="line"></div><div class="line">[array enumerateObjectsUsingBlock:^(Person *obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">    obj.name = <span class="string">@"肉丝"</span>;</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"dataSourceAry[0].name = %@"</span>, dataSourceAry[<span class="number">0</span>].name);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"array[0].name = %@"</span>, array[<span class="number">0</span>].name);</div><div class="line"></div><div class="line"><span class="comment">/** 打印结果</span></div><div class="line"><span class="comment"> &lt;dataSourceAry: ("&lt;Person: 0x60000043ec00&gt;", "&lt;Person: 0x60000043e9c0&gt;")&gt;</span></div><div class="line"><span class="comment"> &lt;array: ("&lt;Person: 0x60000043ec00&gt;","&lt;Person: 0x60000043e9c0&gt;")&gt;</span></div><div class="line"><span class="comment"> dataSourceAry[0].name = 肉丝</span></div><div class="line"><span class="comment"> array[0].name = 肉丝</span></div><div class="line"><span class="comment"> */</span></div></pre></td></tr></table></figure>
-<p>可以从打印的结果看出，数组内元素的内存地址是相同的，所以出现了修改拷贝后数组的第一个元素，导致原数组的第一个元素也发生了同样的改变。虽然两个数组的内存地址不一样，但是内部元素内存地址还是同一地址，不是我们想要的结果。</p>
-<h3 id="实现模型数组深拷贝的方法"><a href="#实现模型数组深拷贝的方法" class="headerlink" title="实现模型数组深拷贝的方法"></a>实现模型数组深拷贝的方法</h3><p>1、最笨的方法就是通过遍历逐个拷贝元素<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSMutableArray</span> *array = [<span class="built_in">NSMutableArray</span> array];</div><div class="line"><span class="keyword">for</span> (Person *person <span class="keyword">in</span> dataSourceAry) &#123;</div><div class="line">    [array addObject:[person <span class="keyword">copy</span>]];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2、也有人使用归档解档实现数组内部元素拷贝</p>
-<p>3、这么好用的一个方法现在才发现（推荐）</p>
-<p>flag=YES当模型数组内元素对象遵守了copy协议，数组元素对象才能进行深拷贝。数组元素对象没有遵守copy协议或者flag=NO，则会进行浅拷贝<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">instancetype</span>)initWithArray:(<span class="built_in">NSArray</span>&lt;ObjectType&gt; *)array copyItems:(<span class="built_in">BOOL</span>)flag</div></pre></td></tr></table></figure></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSArray</span> &lt;Person *&gt;*deepCopyAry = [[<span class="built_in">NSArray</span> alloc]initWithArray:dataSourceAry copyItems:<span class="literal">YES</span>];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"&lt;dataSourceAry: %@&gt;"</span>, dataSourceAry);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"&lt;deepCopyAry: %@&gt;"</span>, deepCopyAry);</div><div class="line">    </div><div class="line">[deepCopyAry enumerateObjectsUsingBlock:^(Person *obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">    obj.name = <span class="string">@"弗兰克"</span>;</div><div class="line">    obj.dog.name = <span class="string">@"弗兰克的dog"</span>;</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"dataSourceAry[0].name = %@"</span>, dataSourceAry[<span class="number">0</span>].name);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"deepCopyAry[0].name = %@"</span>, deepCopyAry[<span class="number">0</span>].name);</div><div class="line">    </div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"dataSourceAry[0].dog.name = %@"</span>, dataSourceAry[<span class="number">0</span>].dog.name);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"deepCopyAry[0].dog.name = %@"</span>, deepCopyAry[<span class="number">0</span>].dog.name);</div><div class="line">    </div><div class="line"><span class="comment">/** 打印结果</span></div><div class="line"><span class="comment">&lt;dataSourceAry: ("&lt;Person: 0x604000427680&gt;", "&lt;Person: 0x604000425220&gt;")&gt;</span></div><div class="line"><span class="comment">&lt;deepCopyAry: ("&lt;Person: 0x60000042cb80&gt;", "&lt;Person: 0x60000042cae0&gt;")&gt;</span></div><div class="line"><span class="comment"> </span></div><div class="line"><span class="comment">dataSourceAry[0].name = 肉丝</span></div><div class="line"><span class="comment">deepCopyAry[0].name = 弗兰克</span></div><div class="line"><span class="comment"> </span></div><div class="line"><span class="comment">dataSourceAry[0].dog.name = 拉不拉多不多就拉倒</span></div><div class="line"><span class="comment">deepCopyAry[0].dog.name = 弗兰克的dog</span></div><div class="line"><span class="comment"> */</span></div></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>1、模型数组内元素中模型必须要实现copy协议，模型内如果有嵌套模型，也需要实现copy协议，否则执行对对象拷贝操作会出现崩溃；<br>2、使用<code>- (instancetype)initWithArray:(NSArray&lt;ObjectType&gt; *)array copyItems:(BOOL)flag</code>实现模型数组拷贝；</p>
+        <p>今天记录下在阿里云虚拟机下搭建Tpyecho和WordPress两个平台，对是两个不同的平台。为什么把两个平台合并到一起介绍呢？我解释下因为两个平台的搭建过程、配置都很相似，并且这两个平台配置都很简单，不足以写两篇文章。下面开始平台搭建。</p>
+<a id="more"></a>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>平台下载地址：<a href="http://typecho.org/" target="_blank" rel="noopener">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="noopener">WordPress</a><br>文件上传工具：<a href="https://filezilla-project.org" target="_blank" rel="noopener">File Zilla</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Typecho不要配置。<br>WordPress下载下来后拷贝<code>wp-config-sample.php</code>文件，重新命名为<code>wp-config.php</code>，打开这两个配置文件设置如下：<br><img src="http://7xowiw.com1.z0.glb.clouddn.com/wp_config.png" alt=""><br>对应的数据库信息在：<code>控制台</code>-&gt;<code>云虚拟主机</code>-&gt;<code>管理</code>-&gt;<code>数据库信息</code>出现如下：<br><img src="http://7xowiw.com1.z0.glb.clouddn.com/mysql_info.png" alt=""></p>
+<blockquote>
+<p>注意：WordPress平台要求PHP 5.2.4以上版本，所以记得将主机PHP环境设置高于PHP 5.2.4 如图：<img src="http://7xowiw.com1.z0.glb.clouddn.com/PHP%E7%89%88%E6%9C%AC%E8%AE%BE%E7%BD%AE.png" alt=""></p>
+</blockquote>
+<h2 id="域名绑定服务器"><a href="#域名绑定服务器" class="headerlink" title="域名绑定服务器"></a>域名绑定服务器</h2><p>上篇<a href="https://wynter.wang/2017/01/12/个人博客搭建前期工作/">个人博客搭建前期工作</a>中介绍了域名、服务器的选择和购买，并且完成域名备案，如果没有域名备案还在进行中，那也没关系，因为在阿里购买虚拟机赠送了一个月的备案域名，只能用于网站的调试（哈哈，有点给阿里云打广告的嫌疑）。如果备案完成进入<code>控制台</code>-&gt;<code>域名</code>-&gt;<a href="http://wynter.wang">wynter.wang</a>点击后面的<code>解析</code>-&gt;设置网站解析点击<code>立即解析</code>，如果是购买阿里云的虚拟主机系统会自动检测到主机IP的地址，不是的话就手动设置其他主机的IP地址，然后点击<code>提交</code>，主机和域名绑定完成。</p>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>使用<a href="https://filezilla-project.org" target="_blank" rel="noopener">File Zilla</a>工具将下载的<a href="http://typecho.org/" target="_blank" rel="noopener">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="noopener">WordPress</a>文件上传到服务器上的<code>htdocs</code>目录下</p>
+<h2 id="数据库和网站配置"><a href="#数据库和网站配置" class="headerlink" title="数据库和网站配置"></a>数据库和网站配置</h2><ul>
+<li>文件上传文成之后，在浏览器中输入<a href="http://wynter.wang">wynter.wang</a>，会看到<a href="http://typecho.org/" target="_blank" rel="noopener">Typecho</a>、<a href="https://cn.wordpress.org" target="_blank" rel="noopener">WordPress</a>的数据库配置和网站配置界面，按照说明填写即可。</li>
+<li>配置完成后就会看到Hello world界面了。</li>
+</ul>
+<h2 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h2><ul>
+<li><a href="https://typecho.me" target="_blank" rel="noopener">Typecho</a>：主要是一些主题、插件，需要手动放到<code>themes</code>文件下，然后进入后台主题选择启用。</li>
+<li><a href="https://cn.wordpress.org/themes/" target="_blank" rel="noopener">WordPress</a>：也可以通过后台主题管理下载主题，直接应用非常方便。</li>
+</ul>
 
       
     </div>
@@ -428,7 +438,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+            <a href="/tags/Typecho/" rel="tag"># Typecho</a>
+          
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
           
         </div>
       
@@ -441,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/11/SVN命令使用汇总/" rel="next" title="SVN命令使用汇总">
-                <i class="fa fa-chevron-left"></i> SVN命令使用汇总
+              <a href="/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客 2 2/" rel="next" title="阿里云虚拟机下搭建Typecho、WordPress博客">
+                <i class="fa fa-chevron-left"></i> 阿里云虚拟机下搭建Typecho、WordPress博客
               </a>
             
           </div>
@@ -451,8 +465,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/11/iOS 使用AFNetworking传输字符串/" rel="prev" title="iOS 使用AFNetworking传输字符串">
-                iOS 使用AFNetworking传输字符串 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/18/Hexo-博客搭建/" rel="prev" title="Hexo 博客搭建">
+                Hexo 博客搭建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -617,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建两个model并实现copying协议"><span class="nav-number">1.</span> <span class="nav-text">创建两个model并实现copying协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对模型数组使用mutablCopy操作并不是深拷贝"><span class="nav-number">2.</span> <span class="nav-text">对模型数组使用mutablCopy操作并不是深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现模型数组深拷贝的方法"><span class="nav-number">3.</span> <span class="nav-text">实现模型数组深拷贝的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名绑定服务器"><span class="nav-number">3.</span> <span class="nav-text">域名绑定服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件上传"><span class="nav-number">4.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库和网站配置"><span class="nav-number">5.</span> <span class="nav-text">数据库和网站配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改主题"><span class="nav-number">6.</span> <span class="nav-text">更改主题</span></a></li></ol></div>
             
 
           </div>
