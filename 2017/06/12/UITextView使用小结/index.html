@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="这个人很懒，什么都没有留下">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Wynter">
-<meta property="og:url" content="https://wynter.wang/page/6/index.html">
+<meta name="description" content="UITextView在开发中经常用到，但一直也没对它进行正整理总结，以至于在使用的时候忽略一些小问题，还要浪费不必要的时间。">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UITextView使用小结">
+<meta property="og:url" content="https://wynter.wang/2017/06/12/UITextView使用小结/index.html">
 <meta property="og:site_name" content="Wynter">
-<meta property="og:description" content="这个人很懒，什么都没有留下">
+<meta property="og:description" content="UITextView在开发中经常用到，但一直也没对它进行正整理总结，以至于在使用的时候忽略一些小问题，还要浪费不必要的时间。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-15T07:57:19.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wynter">
-<meta name="twitter:description" content="这个人很懒，什么都没有留下">
+<meta name="twitter:title" content="UITextView使用小结">
+<meta name="twitter:description" content="UITextView在开发中经常用到，但一直也没对它进行正整理总结，以至于在使用的时候忽略一些小问题，还要浪费不必要的时间。">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://wynter.wang/page/6/"/>
+  <link rel="canonical" href="https://wynter.wang/2017/06/12/UITextView使用小结/"/>
 
 
 
 
 
-  <title>Wynter</title>
+  <title>UITextView使用小结 | Wynter</title>
   
 
 
@@ -155,8 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -273,9 +274,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -288,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2017/01/11/MAC-搭建本地服务器/">
+    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2017/06/12/UITextView使用小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wynter">
@@ -305,9 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/11/MAC-搭建本地服务器/" itemprop="url">Mac环境搭建本地服务器</a></h1>
+          <h1 class="post-title" itemprop="name headline">UITextView使用小结</h1>
         
 
         <div class="post-meta">
@@ -319,516 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-11T14:13:46+08:00">
-                2017-01-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/01/11/MAC-搭建本地服务器/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://wynter.wang/2017/01/11/MAC-搭建本地服务器/" class="cy_cmt_count" data-xid="2017/01/11/MAC-搭建本地服务器/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/2017/01/11/MAC-搭建本地服务器/" class="leancloud_visitors" data-flag-title="Mac环境搭建本地服务器">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在工作中我有时候会用到本地搭建服务器测试环境，如果你是使用Mac的小伙伴，那么使用起来就非常简单了，因为Mac自带<code>Apache</code>和<code>PHP</code>环境，当然也可以不用系统自带的，下面将一一介绍：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/11/MAC-搭建本地服务器/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2017/01/11/iOS-UIKit框架学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wynter">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wynter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/11/iOS-UIKit框架学习/" itemprop="url">iOS UIKit框架学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-11T14:13:02+08:00">
-                2017-01-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/01/11/iOS-UIKit框架学习/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://wynter.wang/2017/01/11/iOS-UIKit框架学习/" class="cy_cmt_count" data-xid="2017/01/11/iOS-UIKit框架学习/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/2017/01/11/iOS-UIKit框架学习/" class="leancloud_visitors" data-flag-title="iOS UIKit框架学习">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直想系统的学习UIKit框架，但总有种种借口没能开始。从今天开始将一步一步的学习UIKit框架。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/11/iOS-UIKit框架学习/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2017/01/11/iOS-ATS-非HTTPS被禁问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wynter">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wynter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/11/iOS-ATS-非HTTPS被禁问题/" itemprop="url">iOS ATS / 非HTTPS被禁问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-11T14:10:27+08:00">
-                2017-01-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/01/11/iOS-ATS-非HTTPS被禁问题/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://wynter.wang/2017/01/11/iOS-ATS-非HTTPS被禁问题/" class="cy_cmt_count" data-xid="2017/01/11/iOS-ATS-非HTTPS被禁问题/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-             <span id="/2017/01/11/iOS-ATS-非HTTPS被禁问题/" class="leancloud_visitors" data-flag-title="iOS ATS / 非HTTPS被禁问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自iOS 9起苹果就开始推荐使用HTTPS，在iOS 9中默认是禁止非HTTPS的协议来访问网络的，但是还是给我我们缓冲的机会，解决方法:</p>
-<ul>
-<li>在<code>Info.plist</code>中添加<code>NSAppTransportSecurity</code>类型<code>Dictionary</code>。</li>
-<li>在<code>NSAppTransportSecurity</code>下添加<code>NSAllowsArbitraryLoads</code>类型<code>Boolean</code>,值设为<code>YES</code>。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/11/iOS-ATS-非HTTPS被禁问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2016/01/17/Markdown基础语法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wynter">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wynter">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/01/17/Markdown基础语法/" itemprop="url">Markdown基础语法介绍</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-17T16:13:16+08:00">
-                2016-01-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T19:13:16+08:00">
+                2017-06-12
               </time>
             
 
@@ -869,8 +360,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2016/01/17/Markdown基础语法/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://wynter.wang/2016/01/17/Markdown基础语法/" class="cy_cmt_count" data-xid="2016/01/17/Markdown基础语法/" itemprop="commentsCount" ></span>
+                <a href="/2017/06/12/UITextView使用小结/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/06/12/UITextView使用小结/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -878,7 +369,7 @@
 
           
           
-             <span id="/2016/01/17/Markdown基础语法/" class="leancloud_visitors" data-flag-title="Markdown基础语法介绍">
+             <span id="/2017/06/12/UITextView使用小结/" class="leancloud_visitors" data-flag-title="UITextView使用小结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -909,16 +400,28 @@
       
 
       
-        
-          <p><strong>Markdown</strong>是一种轻量级<strong>标记语言</strong>，它以纯文本形式(<em>易读、易写、易更改</em>)编写文档，并最终以HTML格式发布。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/01/17/Markdown基础语法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>UITextView在开发中经常用到，但一直也没对它进行正整理总结，以至于在使用的时候忽略一些小问题，还要浪费不必要的时间。</p>
+<a id="more"></a>
+<h2 id="计算文本的高度和调整文本内间距"><a href="#计算文本的高度和调整文本内间距" class="headerlink" title="计算文本的高度和调整文本内间距"></a>计算文本的高度和调整文本内间距</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGSize</span> size = [textView sizeThatFits:<span class="built_in">CGSizeMake</span>(textViewW, <span class="built_in">CGFLOAT_MAX</span>)];</div><div class="line"><span class="built_in">CGSize</span> size1 = [textView.text boundingRectWithSize:<span class="built_in">CGSizeMake</span>(textViewW, <span class="built_in">CGFLOAT_MAX</span>) options:<span class="built_in">NSStringDrawingUsesFontLeading</span> | <span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> attributes:@&#123;<span class="built_in">NSFontAttributeName</span>: [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">14</span>]&#125; context:<span class="literal">nil</span>].size;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"sizeThatFits: %f \nboundingRectWithSize: %f"</span>, size.height, size1.height);</div><div class="line"><span class="comment">//Output: sizeThatFits: 100.000000  </span></div><div class="line"><span class="comment">//boundingRectWithSize: 83.535156</span></div></pre></td></tr></table></figure>
+<p>上面用两个方法计算文本高度只是为了方便比较，当然计算UITextView的高度最好的办法还是是使用<code>sizeThatFits:</code>计算，它并不改变UITextView的size，它只是让UITextView根据已有文本内容和给定size计算出UITextView的contentSize。那么是什么导致两个计算高度不一致，因为<code>textView.textContainerInset</code>默认值是<code>UIEdgeInsetsMake(8, 0, 8, 0)</code>，设置<code>textView.textContainerInset = UIEdgeInsetsZero</code>解决，再看下计算的高度值：</p>
+<blockquote>
+<p>Output: sizeThatFits: 84.000000<br>   boundingRectWithSize: 83.535156</p>
+</blockquote>
+<p>计算结果基本接近，但是文本左右仍然有一定的间隔，此时可以使用<code>lineFragmentPadding</code>属性，通过设置<code>textView.textContainer.lineFragmentPadding = 0</code>可以去除左右间距，苹果API解释为在文本框每行的开头和结尾填充宽度默认为5，还是拿到值验证下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGFloat</span> lineFragmentPadding = textView.textContainer.lineFragmentPadding;</div><div class="line"><span class="built_in">UIEdgeInsets</span> textContainerInset = textView.textContainerInset;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"lineFragmentPadding: %f\textContainerInset:%@"</span>, lineFragmentPadding, <span class="built_in">NSStringFromUIEdgeInsets</span>(textContainerInset));</div><div class="line"><span class="comment">//Output: lineFragmentPadding: 5.000000</span></div><div class="line"><span class="comment">//textContainerInset:&#123;8, 0, 8, 0&#125;</span></div></pre></td></tr></table></figure>
+<h2 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h2><p>第一种方法：使用将label添加在UITextView上利用delegate设置label的透明度来模仿UITextField占位符效果。这种方法使用起来虽然能达到占位占位符效果，但是多出用到UITextView时就用很多重复的代码，所以放弃使用此方法。</p>
+<p>第二种方法：继承UITextView在其内部添加个UITextView</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">PlaceholderTextView</span> : <span class="title">UITextView</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *placeholder;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *placeholderColor;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"PlaceholderTextView.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">PlaceholderTextView</span> ()</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="built_in">UITextView</span> *placeholderView;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">PlaceholderTextView</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)awakeFromNib &#123;</div><div class="line">    [<span class="keyword">super</span> awakeFromNib];</div><div class="line">    [<span class="keyword">self</span> setup];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame]) &#123;</div><div class="line">        [<span class="keyword">self</span> setup];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setup &#123;</div><div class="line">    <span class="keyword">self</span>.scrollEnabled = <span class="literal">NO</span>;</div><div class="line">    <span class="keyword">self</span>.scrollsToTop = <span class="literal">NO</span>;</div><div class="line">    <span class="keyword">self</span>.showsHorizontalScrollIndicator = <span class="literal">NO</span>;</div><div class="line">    <span class="keyword">self</span>.enablesReturnKeyAutomatically = <span class="literal">YES</span>;</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(textDidChange) name:<span class="built_in">UITextViewTextDidChangeNotification</span> object:<span class="keyword">self</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)textDidChange &#123;</div><div class="line">    <span class="keyword">self</span>.placeholderView.hidden = <span class="keyword">self</span>.text.length &gt; <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">UITextView</span> *)placeholderView &#123;</div><div class="line">    <span class="keyword">if</span> (_placeholderView == <span class="literal">nil</span>) &#123;</div><div class="line">        <span class="built_in">UITextField</span> *textField = [[<span class="built_in">UITextField</span> alloc] init];</div><div class="line">        _placeholderColor = [textField valueForKeyPath:<span class="string">@"_placeholderLabel.textColor"</span>];</div><div class="line">        <span class="built_in">UITextView</span> *placeholderView = [[<span class="built_in">UITextView</span> alloc] init];</div><div class="line">        placeholderView.frame = <span class="keyword">self</span>.bounds;</div><div class="line">        placeholderView.scrollEnabled = <span class="literal">NO</span>;</div><div class="line">        placeholderView.showsHorizontalScrollIndicator = <span class="literal">NO</span>;</div><div class="line">        placeholderView.showsVerticalScrollIndicator = <span class="literal">NO</span>;</div><div class="line">        placeholderView.userInteractionEnabled = <span class="literal">NO</span>;</div><div class="line">        placeholderView.font = <span class="keyword">self</span>.font;</div><div class="line">        placeholderView.textColor = _placeholderColor;</div><div class="line">        placeholderView.backgroundColor = [<span class="built_in">UIColor</span> clearColor];</div><div class="line">        [<span class="keyword">self</span> addSubview:placeholderView];</div><div class="line">        _placeholderView = placeholderView;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _placeholderView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setPlaceholderColor:(<span class="built_in">UIColor</span> *)placeholderColor &#123;</div><div class="line">    _placeholderColor = placeholderColor;</div><div class="line">    <span class="keyword">self</span>.placeholderView.textColor = placeholderColor;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setPlaceholder:(<span class="built_in">NSString</span> *)placeholder &#123;</div><div class="line">    _placeholder = placeholder;</div><div class="line">    <span class="keyword">self</span>.placeholderView.text = placeholder;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)dealloc &#123;</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>第三种方法：使用UITextView的Category实现占位符效果，本来是打算自己实现的，但是在github上看到一个别出心裁的<a href="https://github.com/devxoul/UITextView-Placeholder.git" target="_blank" rel="noopener">UITextView-Placeholder</a>方法，巧妙的运用Method Swizzling、关联属性、KVO等方法实现了占位符功能，不要吝啬使用方法，推荐使用这种方法。</p>
+<h3 id="限制最大行数"><a href="#限制最大行数" class="headerlink" title="限制最大行数"></a>限制最大行数</h3><p>根据行数计算出textView的最大高，每行高度 * 总行数 + 文字上下间距。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">maxTextHeight = ceil(textView.font.lineHeight * maxNumberOfLines + textView.textContainerInset.top + textView.textContainerInset.bottom);</div></pre></td></tr></table></figure>
+<h3 id="适应文字高度"><a href="#适应文字高度" class="headerlink" title="适应文字高度"></a>适应文字高度</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)textViewDidChange:(<span class="built_in">UITextView</span> *)textView &#123;</div><div class="line">    <span class="built_in">NSInteger</span> height = ceilf([textView sizeThatFits:<span class="built_in">CGSizeMake</span>(textView.bounds.size.width, MAXFLOAT)].height);</div><div class="line">    <span class="keyword">if</span> (textHeight != height) &#123;</div><div class="line">        textView.scrollEnabled = height &gt; maxTextHeight &amp;&amp; maxTextHeight&gt; <span class="number">0</span>;</div><div class="line">        textHeight = height;</div><div class="line">        <span class="keyword">if</span> (textView.scrollEnabled == <span class="literal">NO</span>) &#123;</div><div class="line">            <span class="keyword">self</span>.textViewConstraintH.constant = height;</div><div class="line">            [<span class="keyword">self</span>.view layoutIfNeeded];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="随键盘弹出效果"><a href="#随键盘弹出效果" class="headerlink" title="随键盘弹出效果"></a>随键盘弹出效果</h3><p>1、添加监听</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(keyboardWillChangeFrame:) name:<span class="built_in">UIKeyboardWillChangeFrameNotification</span> object:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<p>2、处理键盘位置变化</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)keyboardWillChangeFrame:(<span class="built_in">NSNotification</span> *)note &#123;</div><div class="line">    <span class="built_in">CGRect</span> endFrame = [note.userInfo[<span class="built_in">UIKeyboardFrameEndUserInfoKey</span>] <span class="built_in">CGRectValue</span>];</div><div class="line">    <span class="built_in">CGFloat</span> duration = [note.userInfo[<span class="built_in">UIKeyboardAnimationDurationUserInfoKey</span>] floatValue];</div><div class="line">    <span class="built_in">CGFloat</span> screenH = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.height; </div><div class="line">    _bottomCons.constant = endFrame.origin.y != screenH?endFrame.size.height:<span class="number">0</span>;</div><div class="line">    [<span class="built_in">UIView</span> animateWithDuration:duration animations:^&#123;</div><div class="line">        [<span class="keyword">self</span>.view layoutIfNeeded];</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -933,14 +436,40 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/21/StoryBoard使用之页面传值/" rel="next" title="StoryBoard使用之页面传值">
+                <i class="fa fa-chevron-left"></i> StoryBoard使用之页面传值
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/12/UISaerchBar偏移问题/" rel="prev" title="UISaerchBar偏移问题">
+                UISaerchBar偏移问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -950,14 +479,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -965,6 +491,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -985,8 +520,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1073,6 +617,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算文本的高度和调整文本内间距"><span class="nav-number">1.</span> <span class="nav-text">计算文本的高度和调整文本内间距</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#占位符"><span class="nav-number">2.</span> <span class="nav-text">占位符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#限制最大行数"><span class="nav-number">2.1.</span> <span class="nav-text">限制最大行数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适应文字高度"><span class="nav-number">2.2.</span> <span class="nav-text">适应文字高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随键盘弹出效果"><span class="nav-number">2.3.</span> <span class="nav-text">随键盘弹出效果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1213,6 +773,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -1247,7 +811,18 @@
 
 
   
-    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyt5Xs64o"></script>
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyt5Xs64o';
+      var conf = '924dd45ead9c6c1d9d02c43910875642';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
   
 
 
