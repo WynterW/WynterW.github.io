@@ -84,7 +84,7 @@
 <meta name="description" content="这个人很懒，什么都没有留下">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wynter">
-<meta property="og:url" content="https://wynter.wang/tags/Wordpress/index.html">
+<meta property="og:url" content="https://wynter.wang/tags/WordPress/index.html">
 <meta property="og:site_name" content="Wynter">
 <meta property="og:description" content="这个人很懒，什么都没有留下">
 <meta property="og:locale" content="zh-Hans">
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://wynter.wang/tags/Wordpress/"/>
+  <link rel="canonical" href="https://wynter.wang/tags/WordPress/"/>
 
 
 
 
 
-  <title>标签: Wordpress | Wynter</title>
+  <title>标签: WordPress | Wynter</title>
   
 
 
@@ -280,7 +280,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Wordpress<small>标签</small>
+        <h1>WordPress<small>标签</small>
         </h1>
       </div>
 
@@ -292,9 +292,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/01/12/个人博客搭建前期工作/" itemprop="url">
+            <a class="post-title-link" href="/2017/01/17/阿里云虚拟机下搭建Typecho、WordPress博客/" itemprop="url">
               
-                <span itemprop="name">个人博客搭建前期工作</span>
+                <span itemprop="name">阿里云虚拟机下搭建Typecho、WordPress博客</span>
               
             </a>
         
@@ -302,9 +302,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-12T19:10:27+08:00"
-              content="2017-01-12" >
-          01-12
+              datetime="2017-01-17T16:13:16+08:00"
+              content="2017-01-17" >
+          01-17
         </time>
       </div>
 
@@ -368,7 +368,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -998,86 +998,6 @@
           }
         })
         .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-t, error) {
           console.log("Error: " + error.code + " " + error.message);
         });
     }
