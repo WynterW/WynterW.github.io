@@ -151,9 +151,9 @@
         <title>iOS CGGeometry</title>
         <pubTime>2017-10-11T06:14:26.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -314,9 +314,9 @@
         <title>iOS-UIKit框架学习—UITextView</title>
         <pubTime>2017-05-12T12:26:34.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -336,9 +336,9 @@
         <title>iOS-UIKit框架学习—UITextField</title>
         <pubTime>2017-04-14T09:10:52.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -358,9 +358,9 @@
         <title>iOS-UIKit框架学习—UISwitch</title>
         <pubTime>2017-04-14T09:14:11.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -380,9 +380,9 @@
         <title>iOS-UIKit框架学习—UISlider</title>
         <pubTime>2017-04-14T09:13:35.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -402,9 +402,9 @@
         <title>iOS-UIKit框架学习—UISegmentedControl</title>
         <pubTime>2017-04-14T09:10:14.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -424,9 +424,9 @@
         <title>iOS-UIKit框架学习—UISearchBar</title>
         <pubTime>2017-02-28T06:42:59.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -446,9 +446,9 @@
         <title>iOS-UIKit框架学习—UIWebView</title>
         <pubTime>2017-02-28T06:44:03.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -468,9 +468,9 @@
         <title>iOS-UIKit框架学习—UIButton</title>
         <pubTime>2017-03-08T08:21:40.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -490,9 +490,9 @@
         <title>iOS-UIKit框架学习—UIControl</title>
         <pubTime>2017-03-08T08:21:13.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -512,9 +512,9 @@
         <title>iOS-UIKit框架学习—UIDatePicker</title>
         <pubTime>2017-03-08T08:22:03.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -534,9 +534,9 @@
         <title>iOS-UIKit框架学习—UIPageControl</title>
         <pubTime>2017-03-08T08:22:19.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -556,9 +556,9 @@
         <title>iOS-UIKit框架学习—UITableView</title>
         <pubTime>2017-02-16T02:48:40.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -598,9 +598,9 @@
         <title>iOS-UIKit框架学习—UIScrollView</title>
         <pubTime>2017-02-10T11:35:45.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -620,9 +620,9 @@
         <title>iOS-UIKit框架学习—UIActionSheet</title>
         <pubTime>2017-02-06T06:49:39.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -642,9 +642,9 @@
         <title>Objective-C Runtime</title>
         <pubTime>2017-02-08T03:21:13.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
         <tag>Runtime</tag>
          
@@ -666,9 +666,9 @@
         <title>iOS-UIKit框架学习—UIAlertController</title>
         <pubTime>2017-02-06T06:50:31.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -688,9 +688,9 @@
         <title>iOS-UIKit框架学习—UIAlertView</title>
         <pubTime>2017-02-06T06:49:57.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -710,31 +710,9 @@
         <title>iOS UIKit框架学习—UIWindow</title>
         <pubTime>2017-01-13T08:10:02.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
          
-         
-           
-             
-              <breadCrumb title="iOS" url="https://wynter.wang/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIToolbar/</loc>
-    <lastmod>2017-01-25T03:48:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS UIKit框架学习—UIToolbar</title>
-        <pubTime>2017-01-25T03:17:12.000Z</pubTime>
-        
         <tag>API</tag>
-         
-        <tag>iOS</tag>
          
          
            
@@ -754,9 +732,31 @@
         <title>iOS UIKit框架学习—UIActivityIndicatorView</title>
         <pubTime>2017-01-25T03:16:11.000Z</pubTime>
         
+        <tag>iOS</tag>
+         
         <tag>API</tag>
          
+         
+           
+             
+              <breadCrumb title="iOS" url="https://wynter.wang/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIToolbar/</loc>
+    <lastmod>2017-01-25T03:48:42.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS UIKit框架学习—UIToolbar</title>
+        <pubTime>2017-01-25T03:17:12.000Z</pubTime>
+        
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -776,9 +776,9 @@
         <title>iOS UIKit框架学习—UILabel</title>
         <pubTime>2017-01-13T03:28:44.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -798,9 +798,9 @@
         <title>iOS UIKit框架学习—UIView</title>
         <pubTime>2017-01-12T11:00:10.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -820,9 +820,9 @@
         <title>iOS UIKit框架学习—UITableViewCell</title>
         <pubTime>2017-01-25T03:17:56.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -842,9 +842,9 @@
         <title>iOS UIKit框架学习—UIPickerView</title>
         <pubTime>2017-01-25T03:13:52.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -864,9 +864,9 @@
         <title>iOS UIKit框架学习—UIImageView</title>
         <pubTime>2017-01-25T03:16:28.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -886,9 +886,9 @@
         <title>iOS UIKit框架学习—UITabBar</title>
         <pubTime>2017-01-25T03:16:54.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -908,9 +908,9 @@
         <title>iOS UIKit框架学习—UIProgressView</title>
         <pubTime>2017-01-25T03:14:27.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -930,9 +930,9 @@
         <title>iOS UIKit框架学习—UINavigationBar</title>
         <pubTime>2017-01-25T03:17:27.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -952,9 +952,9 @@
         <title>iOS UIKit框架学习—UIApplication</title>
         <pubTime>2017-01-12T10:02:59.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -998,9 +998,9 @@
         <title>iOS UIKit框架学习—NSObject</title>
         <pubTime>2017-01-11T06:14:26.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            
@@ -1064,9 +1064,9 @@
         <title>iOS UIKit框架学习—UIResponder</title>
         <pubTime>2017-01-11T06:14:46.000Z</pubTime>
         
-        <tag>API</tag>
-         
         <tag>iOS</tag>
+         
+        <tag>API</tag>
          
          
            

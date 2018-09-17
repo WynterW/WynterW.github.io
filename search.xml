@@ -12,9 +12,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS 自定义-苹方字体的使用]]></title>
-    <url>%2F2018%2F05%2F11%2FiOS%20%E8%87%AA%E5%AE%9A%E4%B9%89-%E8%8B%B9%E6%96%B9%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[不是系统已经自带苹方字体了为什么还要自定义呢？因为苹方字体是在iOS 9引入的，所以如果要支持iOS 9以下都要手动引入苹方字体。 添加苹方字体到项目中 获取苹方字体，Command+G输入/System/Library/Fonts/PingFang.ttc 直接拖到将PingFang.ttc文件拖到项目中 在 info.plist文件中添加Fonts provided by application，并设置字体包名称 我在iOS 8系统的模拟器中没有在Info.plist中添加Fonts provided by application，也已经可以正常使用苹方字体了 获取当前系统支持的字体1234567891011121314151617181920212223242526272829303132333435for (NSString *fontFamilyName in UIFont.familyNames) &#123; NSLog(@"familyName:%@", fontFamilyName); for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) &#123; NSLog(@"fontName:%@", fontName); &#125;&#125;打印结果省略了苹方字体以外的字体/** …… 2018-04-28 11:07:52.217401+0800 QYLY[5900:238352] familyName:PingFang TC 2018-04-28 11:07:52.218150+0800 QYLY[5900:238352] fontName:PingFangTC-Regular 2018-04-28 11:07:52.218609+0800 QYLY[5900:238352] fontName:PingFangTC-Thin 2018-04-28 11:07:52.219340+0800 QYLY[5900:238352] fontName:PingFangTC-Medium 2018-04-28 11:07:52.220841+0800 QYLY[5900:238352] fontName:PingFangTC-Semibold 2018-04-28 11:07:52.222403+0800 QYLY[5900:238352] fontName:PingFangTC-Light 2018-04-28 11:07:52.223328+0800 QYLY[5900:238352] fontName:PingFangTC-Ultralight …… 2018-04-28 11:07:52.299506+0800 QYLY[5900:238352] familyName:PingFang HK 2018-04-28 11:07:52.300103+0800 QYLY[5900:238352] fontName:PingFangHK-Medium 2018-04-28 11:07:52.300944+0800 QYLY[5900:238352] fontName:PingFangHK-Thin 2018-04-28 11:07:52.301597+0800 QYLY[5900:238352] fontName:PingFangHK-Regular 2018-04-28 11:07:52.302162+0800 QYLY[5900:238352] fontName:PingFangHK-Ultralight 2018-04-28 11:07:52.302652+0800 QYLY[5900:238352] fontName:PingFangHK-Semibold 2018-04-28 11:07:52.303029+0800 QYLY[5900:238352] fontName:PingFangHK-Light …… 2018-04-28 11:07:52.423305+0800 QYLY[5900:238352] familyName:PingFang SC 2018-04-28 11:07:52.423714+0800 QYLY[5900:238352] fontName:PingFangSC-Medium 2018-04-28 11:07:52.424151+0800 QYLY[5900:238352] fontName:PingFangSC-Semibold 2018-04-28 11:07:52.424397+0800 QYLY[5900:238352] fontName:PingFangSC-Light 2018-04-28 11:07:52.424621+0800 QYLY[5900:238352] fontName:PingFangSC-Ultralight 2018-04-28 11:07:52.424934+0800 QYLY[5900:238352] fontName:PingFangSC-Regular 2018-04-28 11:07:52.425314+0800 QYLY[5900:238352] fontName:PingFangSC-Thin …… */ 苹方字体怎么会有PingFang SC、PingFang TC、PingFang HK三种呢？对应的是苹方-简、苹方-繁、苹方-港，而且都有六种字重，具体可以在字体册中查看。 苹方-简 中黑体 PingFangSC-Medium苹方-简 中粗体 PingFangSC-Semibold苹方-简 细体 PingFangSC-Light苹方-简 极细体 PingFangSC-Ultralight苹方-简 常规体 PingFangSC-Regular苹方-简 纤细体 PingFangSC-Thin 设置苹方字体123456789// 苹方字体，默认为PingFangSC-RegularUIFont *font = [UIFont fontWithName:@"PingFangSC-Regular" size:14];NSString *familyName = font.familyName;NSString *fontName = font.fontName;NSLog(@"familyName:%@\nfontName:%@", familyName, fontName);/** familyName:PingFang SC fontName:PingFangSC-Regular */ 扩展每次都要输入字体名称比较麻烦，并且还要支持iOS 9以下，使用分类方法比较好。 1234567891011121314151617181920212223#import &lt;UIKit/UIKit.h&gt;typedef NS_ENUM(NSInteger, FontWeightStyle) &#123; FontWeightStyleMedium, // 中黑体 FontWeightStyleSemibold, // 中粗体 FontWeightStyleLight, // 细体 FontWeightStyleUltralight, // 极细体 FontWeightStyleRegular, // 常规体 FontWeightStyleThin, // 纤细体&#125;;@interface UIFont (Ex)/** 苹方字体 @param fontWeight 字体粗细（字重) @param fontSize 字体大小 @return 返回指定字重大小的苹方字体 */+ (UIFont *)pingFangSCWithWeight:(FontWeightStyle)fontWeight size:(CGFloat)fontSize;@end 12345678910111213141516171819202122232425262728293031323334353637#import "UIFont+Ex.h"@implementation UIFont (Ex)+ (UIFont *)pingFangSCWithWeight:(FontWeightStyle)fontWeight size:(CGFloat)fontSize &#123; if (fontWeight &lt; FontWeightStyleMedium || fontWeight &gt; FontWeightStyleThin) &#123; fontWeight = FontWeightStyleRegular; &#125; NSString *fontName = @"PingFangSC-Regular"; switch (fontWeight) &#123; case FontWeightStyleMedium: fontName = @"PingFangSC-Medium"; break; case FontWeightStyleSemibold: fontName = @"PingFangSC-Semibold"; break; case FontWeightStyleLight: fontName = @"PingFangSC-Light"; break; case FontWeightStyleUltralight: fontName = @"PingFangSC-Ultralight"; break; case FontWeightStyleRegular: fontName = @"PingFangSC-Regular"; break; case FontWeightStyleThin: fontName = @"PingFangSC-Thin"; break; &#125; UIFont *font = [UIFont fontWithName:fontName size:fontSize]; return font ?: [UIFont systemFontOfSize:fontSize];&#125;@end]]></content>
+    <title><![CDATA[iOS 模型数组深拷贝]]></title>
+    <url>%2F2018%2F05%2F11%2FiOS%20%E6%A8%A1%E5%9E%8B%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%2F</url>
+    <content type="text"><![CDATA[通常需要实现对模型的拷贝都需要先实现NSCopying、 NSMutableCopying协议，在这里我一直有个误区，以为实现了copy协议，数组使用拷贝操作都会对数组内实现copy协议的对象进行拷贝。 创建两个model并实现copying协议1234567891011121314151617181920212223// Dog.h@interface Dog : NSObject &lt;NSCopying, NSMutableCopying&gt;@property (nonatomic, copy) NSString *name;@end// Dog.m@implementation Dog- (nonnull id)copyWithZone:(nullable NSZone *)zone &#123; Dog *copy = [[Dog allocWithZone:zone]init]; copy.name = self.name; return copy;&#125;- (id)mutableCopyWithZone:(NSZone *)zone &#123; Dog *copy = [[Dog allocWithZone:zone]init]; copy.name = self.name; return copy;&#125;@end 12345678910111213141516171819202122232425262728293031// Person.h#import "Dog.h"@interface Person : NSObject &lt;NSCopying, NSMutableCopying&gt;@property (nonatomic, copy) NSString *name;@property (nonatomic, assign) NSInteger age;@property (nonatomic, copy) Dog *dog;@end// Person.m@implementation Person- (nonnull id)copyWithZone:(nullable NSZone *)zone &#123; Person *copy = [[Person allocWithZone:zone]init]; copy.name = self.name; copy.age = self.age; copy.dog = [self.dog copy]; return copy;&#125;- (id)mutableCopyWithZone:(NSZone *)zone &#123; Person *copy = [[Person allocWithZone:zone]init]; copy.name = self.name; copy.age = self.age; copy.dog = [self.dog copy]; return copy;&#125;@end 对模型数组使用mutablCopy操作并不是深拷贝12345678910111213141516171819202122232425262728293031NSMutableArray &lt;Person *&gt;*dataSourceAry = [NSMutableArray new];for (int i = 0; i &lt; 2; i++) &#123; Dog *dog = [[Dog alloc]init]; dog.name = @"拉不拉多不多就拉倒"; Person *item = [[Person alloc]init]; item.name = @"杰克"; item.age = 18; item.dog = [dog copy]; [dataSourceAry addObject:item];&#125;NSArray &lt;Person *&gt;*array = [dataSourceAry mutableCopy];NSLog(@"&lt;dataSourceAry: %@&gt;", dataSourceAry);NSLog(@"&lt;array: %@&gt;", array);[array enumerateObjectsUsingBlock:^(Person *obj, NSUInteger idx, BOOL * _Nonnull stop) &#123; obj.name = @"肉丝";&#125;];NSLog(@"dataSourceAry[0].name = %@", dataSourceAry[0].name);NSLog(@"array[0].name = %@", array[0].name);/** 打印结果 &lt;dataSourceAry: ("&lt;Person: 0x60000043ec00&gt;", "&lt;Person: 0x60000043e9c0&gt;")&gt; &lt;array: ("&lt;Person: 0x60000043ec00&gt;","&lt;Person: 0x60000043e9c0&gt;")&gt; dataSourceAry[0].name = 肉丝 array[0].name = 肉丝 */ 可以从打印的结果看出，数组内元素的内存地址是相同的，所以出现了修改拷贝后数组的第一个元素，导致原数组的第一个元素也发生了同样的改变。虽然两个数组的内存地址不一样，但是内部元素内存地址还是同一地址，不是我们想要的结果。 实现模型数组深拷贝的方法1、最笨的方法就是通过遍历逐个拷贝元素1234NSMutableArray *array = [NSMutableArray array];for (Person *person in dataSourceAry) &#123; [array addObject:[person copy]];&#125; 2、也有人使用归档解档实现数组内部元素拷贝 3、这么好用的一个方法现在才发现（推荐） flag=YES当模型数组内元素对象遵守了copy协议，数组元素对象才能进行深拷贝。数组元素对象没有遵守copy协议或者flag=NO，则会进行浅拷贝1- (instancetype)initWithArray:(NSArray&lt;ObjectType&gt; *)array copyItems:(BOOL)flag 12345678910111213141516171819202122232425NSArray &lt;Person *&gt;*deepCopyAry = [[NSArray alloc]initWithArray:dataSourceAry copyItems:YES];NSLog(@"&lt;dataSourceAry: %@&gt;", dataSourceAry);NSLog(@"&lt;deepCopyAry: %@&gt;", deepCopyAry); [deepCopyAry enumerateObjectsUsingBlock:^(Person *obj, NSUInteger idx, BOOL * _Nonnull stop) &#123; obj.name = @"弗兰克"; obj.dog.name = @"弗兰克的dog";&#125;];NSLog(@"dataSourceAry[0].name = %@", dataSourceAry[0].name);NSLog(@"deepCopyAry[0].name = %@", deepCopyAry[0].name); NSLog(@"dataSourceAry[0].dog.name = %@", dataSourceAry[0].dog.name);NSLog(@"deepCopyAry[0].dog.name = %@", deepCopyAry[0].dog.name); /** 打印结果&lt;dataSourceAry: ("&lt;Person: 0x604000427680&gt;", "&lt;Person: 0x604000425220&gt;")&gt;&lt;deepCopyAry: ("&lt;Person: 0x60000042cb80&gt;", "&lt;Person: 0x60000042cae0&gt;")&gt; dataSourceAry[0].name = 肉丝deepCopyAry[0].name = 弗兰克 dataSourceAry[0].dog.name = 拉不拉多不多就拉倒deepCopyAry[0].dog.name = 弗兰克的dog */ 总结1、模型数组内元素中模型必须要实现copy协议，模型内如果有嵌套模型，也需要实现copy协议，否则执行对对象拷贝操作会出现崩溃；2、使用- (instancetype)initWithArray:(NSArray&lt;ObjectType&gt; *)array copyItems:(BOOL)flag实现模型数组拷贝；]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -34,9 +34,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS 模型数组深拷贝]]></title>
-    <url>%2F2018%2F05%2F11%2FiOS%20%E6%A8%A1%E5%9E%8B%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%2F</url>
-    <content type="text"><![CDATA[通常需要实现对模型的拷贝都需要先实现NSCopying、 NSMutableCopying协议，在这里我一直有个误区，以为实现了copy协议，数组使用拷贝操作都会对数组内实现copy协议的对象进行拷贝。 创建两个model并实现copying协议1234567891011121314151617181920212223// Dog.h@interface Dog : NSObject &lt;NSCopying, NSMutableCopying&gt;@property (nonatomic, copy) NSString *name;@end// Dog.m@implementation Dog- (nonnull id)copyWithZone:(nullable NSZone *)zone &#123; Dog *copy = [[Dog allocWithZone:zone]init]; copy.name = self.name; return copy;&#125;- (id)mutableCopyWithZone:(NSZone *)zone &#123; Dog *copy = [[Dog allocWithZone:zone]init]; copy.name = self.name; return copy;&#125;@end 12345678910111213141516171819202122232425262728293031// Person.h#import "Dog.h"@interface Person : NSObject &lt;NSCopying, NSMutableCopying&gt;@property (nonatomic, copy) NSString *name;@property (nonatomic, assign) NSInteger age;@property (nonatomic, copy) Dog *dog;@end// Person.m@implementation Person- (nonnull id)copyWithZone:(nullable NSZone *)zone &#123; Person *copy = [[Person allocWithZone:zone]init]; copy.name = self.name; copy.age = self.age; copy.dog = [self.dog copy]; return copy;&#125;- (id)mutableCopyWithZone:(NSZone *)zone &#123; Person *copy = [[Person allocWithZone:zone]init]; copy.name = self.name; copy.age = self.age; copy.dog = [self.dog copy]; return copy;&#125;@end 对模型数组使用mutablCopy操作并不是深拷贝12345678910111213141516171819202122232425262728293031NSMutableArray &lt;Person *&gt;*dataSourceAry = [NSMutableArray new];for (int i = 0; i &lt; 2; i++) &#123; Dog *dog = [[Dog alloc]init]; dog.name = @"拉不拉多不多就拉倒"; Person *item = [[Person alloc]init]; item.name = @"杰克"; item.age = 18; item.dog = [dog copy]; [dataSourceAry addObject:item];&#125;NSArray &lt;Person *&gt;*array = [dataSourceAry mutableCopy];NSLog(@"&lt;dataSourceAry: %@&gt;", dataSourceAry);NSLog(@"&lt;array: %@&gt;", array);[array enumerateObjectsUsingBlock:^(Person *obj, NSUInteger idx, BOOL * _Nonnull stop) &#123; obj.name = @"肉丝";&#125;];NSLog(@"dataSourceAry[0].name = %@", dataSourceAry[0].name);NSLog(@"array[0].name = %@", array[0].name);/** 打印结果 &lt;dataSourceAry: ("&lt;Person: 0x60000043ec00&gt;", "&lt;Person: 0x60000043e9c0&gt;")&gt; &lt;array: ("&lt;Person: 0x60000043ec00&gt;","&lt;Person: 0x60000043e9c0&gt;")&gt; dataSourceAry[0].name = 肉丝 array[0].name = 肉丝 */ 可以从打印的结果看出，数组内元素的内存地址是相同的，所以出现了修改拷贝后数组的第一个元素，导致原数组的第一个元素也发生了同样的改变。虽然两个数组的内存地址不一样，但是内部元素内存地址还是同一地址，不是我们想要的结果。 实现模型数组深拷贝的方法1、最笨的方法就是通过遍历逐个拷贝元素1234NSMutableArray *array = [NSMutableArray array];for (Person *person in dataSourceAry) &#123; [array addObject:[person copy]];&#125; 2、也有人使用归档解档实现数组内部元素拷贝 3、这么好用的一个方法现在才发现（推荐） flag=YES当模型数组内元素对象遵守了copy协议，数组元素对象才能进行深拷贝。数组元素对象没有遵守copy协议或者flag=NO，则会进行浅拷贝1- (instancetype)initWithArray:(NSArray&lt;ObjectType&gt; *)array copyItems:(BOOL)flag 12345678910111213141516171819202122232425NSArray &lt;Person *&gt;*deepCopyAry = [[NSArray alloc]initWithArray:dataSourceAry copyItems:YES];NSLog(@"&lt;dataSourceAry: %@&gt;", dataSourceAry);NSLog(@"&lt;deepCopyAry: %@&gt;", deepCopyAry); [deepCopyAry enumerateObjectsUsingBlock:^(Person *obj, NSUInteger idx, BOOL * _Nonnull stop) &#123; obj.name = @"弗兰克"; obj.dog.name = @"弗兰克的dog";&#125;];NSLog(@"dataSourceAry[0].name = %@", dataSourceAry[0].name);NSLog(@"deepCopyAry[0].name = %@", deepCopyAry[0].name); NSLog(@"dataSourceAry[0].dog.name = %@", dataSourceAry[0].dog.name);NSLog(@"deepCopyAry[0].dog.name = %@", deepCopyAry[0].dog.name); /** 打印结果&lt;dataSourceAry: ("&lt;Person: 0x604000427680&gt;", "&lt;Person: 0x604000425220&gt;")&gt;&lt;deepCopyAry: ("&lt;Person: 0x60000042cb80&gt;", "&lt;Person: 0x60000042cae0&gt;")&gt; dataSourceAry[0].name = 肉丝deepCopyAry[0].name = 弗兰克 dataSourceAry[0].dog.name = 拉不拉多不多就拉倒deepCopyAry[0].dog.name = 弗兰克的dog */ 总结1、模型数组内元素中模型必须要实现copy协议，模型内如果有嵌套模型，也需要实现copy协议，否则执行对对象拷贝操作会出现崩溃；2、使用- (instancetype)initWithArray:(NSArray&lt;ObjectType&gt; *)array copyItems:(BOOL)flag实现模型数组拷贝；]]></content>
+    <title><![CDATA[iOS 自定义-苹方字体的使用]]></title>
+    <url>%2F2018%2F05%2F11%2FiOS%20%E8%87%AA%E5%AE%9A%E4%B9%89-%E8%8B%B9%E6%96%B9%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[不是系统已经自带苹方字体了为什么还要自定义呢？因为苹方字体是在iOS 9引入的，所以如果要支持iOS 9以下都要手动引入苹方字体。 添加苹方字体到项目中 获取苹方字体，Command+G输入/System/Library/Fonts/PingFang.ttc 直接拖到将PingFang.ttc文件拖到项目中 在 info.plist文件中添加Fonts provided by application，并设置字体包名称 我在iOS 8系统的模拟器中没有在Info.plist中添加Fonts provided by application，也已经可以正常使用苹方字体了 获取当前系统支持的字体1234567891011121314151617181920212223242526272829303132333435for (NSString *fontFamilyName in UIFont.familyNames) &#123; NSLog(@"familyName:%@", fontFamilyName); for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) &#123; NSLog(@"fontName:%@", fontName); &#125;&#125;打印结果省略了苹方字体以外的字体/** …… 2018-04-28 11:07:52.217401+0800 QYLY[5900:238352] familyName:PingFang TC 2018-04-28 11:07:52.218150+0800 QYLY[5900:238352] fontName:PingFangTC-Regular 2018-04-28 11:07:52.218609+0800 QYLY[5900:238352] fontName:PingFangTC-Thin 2018-04-28 11:07:52.219340+0800 QYLY[5900:238352] fontName:PingFangTC-Medium 2018-04-28 11:07:52.220841+0800 QYLY[5900:238352] fontName:PingFangTC-Semibold 2018-04-28 11:07:52.222403+0800 QYLY[5900:238352] fontName:PingFangTC-Light 2018-04-28 11:07:52.223328+0800 QYLY[5900:238352] fontName:PingFangTC-Ultralight …… 2018-04-28 11:07:52.299506+0800 QYLY[5900:238352] familyName:PingFang HK 2018-04-28 11:07:52.300103+0800 QYLY[5900:238352] fontName:PingFangHK-Medium 2018-04-28 11:07:52.300944+0800 QYLY[5900:238352] fontName:PingFangHK-Thin 2018-04-28 11:07:52.301597+0800 QYLY[5900:238352] fontName:PingFangHK-Regular 2018-04-28 11:07:52.302162+0800 QYLY[5900:238352] fontName:PingFangHK-Ultralight 2018-04-28 11:07:52.302652+0800 QYLY[5900:238352] fontName:PingFangHK-Semibold 2018-04-28 11:07:52.303029+0800 QYLY[5900:238352] fontName:PingFangHK-Light …… 2018-04-28 11:07:52.423305+0800 QYLY[5900:238352] familyName:PingFang SC 2018-04-28 11:07:52.423714+0800 QYLY[5900:238352] fontName:PingFangSC-Medium 2018-04-28 11:07:52.424151+0800 QYLY[5900:238352] fontName:PingFangSC-Semibold 2018-04-28 11:07:52.424397+0800 QYLY[5900:238352] fontName:PingFangSC-Light 2018-04-28 11:07:52.424621+0800 QYLY[5900:238352] fontName:PingFangSC-Ultralight 2018-04-28 11:07:52.424934+0800 QYLY[5900:238352] fontName:PingFangSC-Regular 2018-04-28 11:07:52.425314+0800 QYLY[5900:238352] fontName:PingFangSC-Thin …… */ 苹方字体怎么会有PingFang SC、PingFang TC、PingFang HK三种呢？对应的是苹方-简、苹方-繁、苹方-港，而且都有六种字重，具体可以在字体册中查看。 苹方-简 中黑体 PingFangSC-Medium苹方-简 中粗体 PingFangSC-Semibold苹方-简 细体 PingFangSC-Light苹方-简 极细体 PingFangSC-Ultralight苹方-简 常规体 PingFangSC-Regular苹方-简 纤细体 PingFangSC-Thin 设置苹方字体123456789// 苹方字体，默认为PingFangSC-RegularUIFont *font = [UIFont fontWithName:@"PingFangSC-Regular" size:14];NSString *familyName = font.familyName;NSString *fontName = font.fontName;NSLog(@"familyName:%@\nfontName:%@", familyName, fontName);/** familyName:PingFang SC fontName:PingFangSC-Regular */ 扩展每次都要输入字体名称比较麻烦，并且还要支持iOS 9以下，使用分类方法比较好。 1234567891011121314151617181920212223#import &lt;UIKit/UIKit.h&gt;typedef NS_ENUM(NSInteger, FontWeightStyle) &#123; FontWeightStyleMedium, // 中黑体 FontWeightStyleSemibold, // 中粗体 FontWeightStyleLight, // 细体 FontWeightStyleUltralight, // 极细体 FontWeightStyleRegular, // 常规体 FontWeightStyleThin, // 纤细体&#125;;@interface UIFont (Ex)/** 苹方字体 @param fontWeight 字体粗细（字重) @param fontSize 字体大小 @return 返回指定字重大小的苹方字体 */+ (UIFont *)pingFangSCWithWeight:(FontWeightStyle)fontWeight size:(CGFloat)fontSize;@end 12345678910111213141516171819202122232425262728293031323334353637#import "UIFont+Ex.h"@implementation UIFont (Ex)+ (UIFont *)pingFangSCWithWeight:(FontWeightStyle)fontWeight size:(CGFloat)fontSize &#123; if (fontWeight &lt; FontWeightStyleMedium || fontWeight &gt; FontWeightStyleThin) &#123; fontWeight = FontWeightStyleRegular; &#125; NSString *fontName = @"PingFangSC-Regular"; switch (fontWeight) &#123; case FontWeightStyleMedium: fontName = @"PingFangSC-Medium"; break; case FontWeightStyleSemibold: fontName = @"PingFangSC-Semibold"; break; case FontWeightStyleLight: fontName = @"PingFangSC-Light"; break; case FontWeightStyleUltralight: fontName = @"PingFangSC-Ultralight"; break; case FontWeightStyleRegular: fontName = @"PingFangSC-Regular"; break; case FontWeightStyleThin: fontName = @"PingFangSC-Thin"; break; &#125; UIFont *font = [UIFont fontWithName:fontName size:fontSize]; return font ?: [UIFont systemFontOfSize:fontSize];&#125;@end]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -96,8 +96,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -152,8 +152,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -175,8 +175,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -187,8 +187,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -199,8 +199,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -211,8 +211,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -223,8 +223,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -235,8 +235,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -247,8 +247,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -259,8 +259,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -271,8 +271,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -283,8 +283,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -295,8 +295,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -307,8 +307,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -319,8 +319,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
         <tag>Runtime</tag>
       </tags>
   </entry>
@@ -332,8 +332,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -344,8 +344,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -356,8 +356,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -368,8 +368,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -380,8 +380,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -392,8 +392,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -404,8 +404,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -416,8 +416,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -428,8 +428,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -440,8 +440,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -452,8 +452,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -488,8 +488,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -500,8 +500,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -525,8 +525,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -537,8 +537,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -549,8 +549,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -561,8 +561,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>API</tag>
         <tag>iOS</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
