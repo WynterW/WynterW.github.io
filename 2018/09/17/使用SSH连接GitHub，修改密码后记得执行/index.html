@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="iOS,API," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="UIToolbar是显示一个或多个按钮的控件又称工具栏项。工具栏轻按时突出显示或不更改项目的外观。">
-<meta name="keywords" content="iOS,API">
+<meta name="description" content="好久没有改过GitHub密码了，前几天GitHub提示密码有可能泄露，于是改了下密码。 天真的我以为，修改完密码本地密钥要GitHub会同步更新，最多需要重新验证下密码就可以了。 周末想更新下文章，使用hexo d -g生成静态文件并部署，结果卡了15分钟都没有反应，我就怀疑是hexo坏了吗？各种找原因，差点就重新初始化hexo了。怀着试试看的心态更下了SSH，结果就好了…好了…了">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS UIKit框架学习—UIToolbar">
-<meta property="og:url" content="https://wynter.wang/2017/01/25/iOS-UIKit框架学习—UIToolbar/index.html">
+<meta property="og:title" content="使用SSH连接GitHub，修改密码后记得执行">
+<meta property="og:url" content="https://wynter.wang/2018/09/17/使用SSH连接GitHub，修改密码后记得执行/index.html">
 <meta property="og:site_name" content="Wynter">
-<meta property="og:description" content="UIToolbar是显示一个或多个按钮的控件又称工具栏项。工具栏轻按时突出显示或不更改项目的外观。">
+<meta property="og:description" content="好久没有改过GitHub密码了，前几天GitHub提示密码有可能泄露，于是改了下密码。 天真的我以为，修改完密码本地密钥要GitHub会同步更新，最多需要重新验证下密码就可以了。 周末想更新下文章，使用hexo d -g生成静态文件并部署，结果卡了15分钟都没有反应，我就怀疑是hexo坏了吗？各种找原因，差点就重新初始化hexo了。怀着试试看的心态更下了SSH，结果就好了…好了…了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-01-25T03:48:42.000Z">
+<meta property="og:updated_time" content="2018-09-17T03:23:01.553Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS UIKit框架学习—UIToolbar">
-<meta name="twitter:description" content="UIToolbar是显示一个或多个按钮的控件又称工具栏项。工具栏轻按时突出显示或不更改项目的外观。">
+<meta name="twitter:title" content="使用SSH连接GitHub，修改密码后记得执行">
+<meta name="twitter:description" content="好久没有改过GitHub密码了，前几天GitHub提示密码有可能泄露，于是改了下密码。 天真的我以为，修改完密码本地密钥要GitHub会同步更新，最多需要重新验证下密码就可以了。 周末想更新下文章，使用hexo d -g生成静态文件并部署，结果卡了15分钟都没有反应，我就怀疑是hexo坏了吗？各种找原因，差点就重新初始化hexo了。怀着试试看的心态更下了SSH，结果就好了…好了…了">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://wynter.wang/2017/01/25/iOS-UIKit框架学习—UIToolbar/"/>
+  <link rel="canonical" href="https://wynter.wang/2018/09/17/使用SSH连接GitHub，修改密码后记得执行/"/>
 
 
 
 
 
-  <title>iOS UIKit框架学习—UIToolbar | Wynter</title>
+  <title>使用SSH连接GitHub，修改密码后记得执行 | Wynter</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2017/01/25/iOS-UIKit框架学习—UIToolbar/">
+    <link itemprop="mainEntityOfPage" href="https://wynter.wang/2018/09/17/使用SSH连接GitHub，修改密码后记得执行/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wynter">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS UIKit框架学习—UIToolbar</h1>
+          <h1 class="post-title" itemprop="name headline">使用SSH连接GitHub，修改密码后记得执行</h1>
         
 
         <div class="post-meta">
@@ -318,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-25T11:17:12+08:00">
-                2017-01-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-17T09:13:16+08:00">
+                2018-09-17
               </time>
             
 
@@ -341,8 +341,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
                   </a>
                 </span>
 
@@ -360,8 +360,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/01/25/iOS-UIKit框架学习—UIToolbar/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/01/25/iOS-UIKit框架学习—UIToolbar/" itemprop="commentsCount"></span>
+                <a href="/2018/09/17/使用SSH连接GitHub，修改密码后记得执行/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/09/17/使用SSH连接GitHub，修改密码后记得执行/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -369,7 +369,7 @@
 
           
           
-             <span id="/2017/01/25/iOS-UIKit框架学习—UIToolbar/" class="leancloud_visitors" data-flag-title="iOS UIKit框架学习—UIToolbar">
+             <span id="/2018/09/17/使用SSH连接GitHub，修改密码后记得执行/" class="leancloud_visitors" data-flag-title="使用SSH连接GitHub，修改密码后记得执行">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,8 +400,25 @@
       
 
       
-        <p>UIToolbar是显示一个或多个按钮的控件又称工具栏项。工具栏轻按时突出显示或不更改项目的外观。<br><a id="more"></a></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@class</span> <span class="title">UIBarButtonItem</span>, <span class="title">UIColor</span>;</span></div><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UIToolbarDelegate</span>;</span></div><div class="line"></div><div class="line"><span class="built_in">NS_CLASS_AVAILABLE_IOS</span>(<span class="number">2</span>_0) __TVOS_PROHIBITED <span class="class"><span class="keyword">@interface</span> <span class="title">UIToolbar</span> : <span class="title">UIView</span> &lt;<span class="title">UIBarPositioning</span>&gt;</span></div><div class="line"><span class="comment">// 工具栏外观样式</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">UIBarStyle</span> barStyle <span class="built_in">UI_APPEARANCE_SELECTOR</span> __TVOS_PROHIBITED; <span class="comment">// default is UIBarStyleDefault (blue)</span></div><div class="line"><span class="comment">// 工具栏上显示的选项</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSArray</span>&lt;<span class="built_in">UIBarButtonItem</span> *&gt; *items;</div><div class="line"><span class="comment">// 是否半透明显示</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">assign</span>,<span class="keyword">getter</span>=isTranslucent) <span class="built_in">BOOL</span> translucent <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">3</span>_0) <span class="built_in">UI_APPEARANCE_SELECTOR</span>;</div><div class="line"><span class="comment">// 工具栏上显示的选项，有动画效果</span></div><div class="line">- (<span class="keyword">void</span>)setItems:(<span class="keyword">nullable</span> <span class="built_in">NSArray</span>&lt;<span class="built_in">UIBarButtonItem</span> *&gt; *)items animated:(<span class="built_in">BOOL</span>)animated;</div><div class="line"><span class="comment">// 工具栏上按钮的底色</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">null_resettable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *tintColor;</div><div class="line"><span class="comment">// 工具栏的底色</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *barTintColor <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0) <span class="built_in">UI_APPEARANCE_SELECTOR</span>;  <span class="comment">// default is nil</span></div><div class="line"><span class="comment">// 设置用于在给定位置和给定度量的背景的图像</span></div><div class="line">- (<span class="keyword">void</span>)setBackgroundImage:(<span class="keyword">nullable</span> <span class="built_in">UIImage</span> *)backgroundImage forToolbarPosition:(<span class="built_in">UIBarPosition</span>)topOrBottom barMetrics:(<span class="built_in">UIBarMetrics</span>)barMetrics <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0) <span class="built_in">UI_APPEARANCE_SELECTOR</span>;</div><div class="line"><span class="comment">// 返回用于在给定位置和给定度量的背景的图像</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIImage</span> *)backgroundImageForToolbarPosition:(<span class="built_in">UIBarPosition</span>)topOrBottom barMetrics:(<span class="built_in">UIBarMetrics</span>)barMetrics <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0) <span class="built_in">UI_APPEARANCE_SELECTOR</span>;</div><div class="line"><span class="comment">// 设置用于给定位置的工具栏阴影的图像</span></div><div class="line">- (<span class="keyword">void</span>)setShadowImage:(<span class="keyword">nullable</span> <span class="built_in">UIImage</span> *)shadowImage forToolbarPosition:(<span class="built_in">UIBarPosition</span>)topOrBottom <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0) <span class="built_in">UI_APPEARANCE_SELECTOR</span>;</div><div class="line"><span class="comment">// 返回用于给定位置的工具栏阴影的图像</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIImage</span> *)shadowImageForToolbarPosition:(<span class="built_in">UIBarPosition</span>)topOrBottom <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0) <span class="built_in">UI_APPEARANCE_SELECTOR</span>;</div><div class="line"><span class="comment">// 代理</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt;<span class="built_in">UIToolbarDelegate</span>&gt; delegate <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0); <span class="comment">// You may not set the delegate when the toolbar is managed by a UINavigationController.</span></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line">__TVOS_PROHIBITED</div><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UIToolbarDelegate</span> &lt;<span class="title">UIBarPositioningDelegate</span>&gt;</span></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+        <p>好久没有改过GitHub密码了，前几天GitHub提示密码有可能泄露，于是改了下密码。</p>
+<p>天真的我以为，修改完密码本地密钥要GitHub会同步更新，最多需要重新验证下密码就可以了。</p>
+<p>周末想更新下文章，使用hexo d -g生成静态文件并部署，结果卡了15分钟都没有反应，我就怀疑是hexo坏了吗？各种找原因，差点就重新初始化hexo了。怀着试试看的心态更下了SSH，结果就好了…好了…了</p>
+<a id="more"></a>
+<h3 id="打开终端进入-ssh目录"><a href="#打开终端进入-ssh目录" class="headerlink" title="打开终端进入.ssh目录"></a>打开终端进入.ssh目录</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.ssh</div></pre></td></tr></table></figure>
+<p>如果.ssh文件夹不存在，执行指令自动创建<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir ~/.ssh</div></pre></td></tr></table></figure></p>
+<h3 id="生成RSA密钥"><a href="#生成RSA密钥" class="headerlink" title="生成RSA密钥"></a>生成RSA密钥</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"你的邮箱@xxx.com"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>出现让输入密码的直接回车即可</p>
+</blockquote>
+<h3 id="查看公钥内容"><a href="#查看公钥内容" class="headerlink" title="查看公钥内容"></a>查看公钥内容</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<h3 id="在GitHub账户中添加公钥"><a href="#在GitHub账户中添加公钥" class="headerlink" title="在GitHub账户中添加公钥"></a>在GitHub账户中添加公钥</h3><ul>
+<li>跳转网址到：<a href="https://github.com/settings/keys" target="_blank" rel="noopener">https://github.com/settings/keys</a></li>
+<li>点击右侧<code>Nes SSH key</code>按钮</li>
+<li>将<code>id_rsa.pub</code>中的内容粘贴进去保存，title随意可以不填</li>
+</ul>
+<h3 id="验证是否添加成功"><a href="#验证是否添加成功" class="headerlink" title="验证是否添加成功"></a>验证是否添加成功</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure>
+<p>出现如下提示成功：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi username! You’ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>解决问题，找对方向 方向 方向很重要！！!</p>
 
       
     </div>
@@ -419,9 +436,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
-          
-            <a href="/tags/API/" rel="tag"># API</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -434,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/25/iOS-UIKit框架学习—UITabBar/" rel="next" title="iOS UIKit框架学习—UITabBar">
-                <i class="fa fa-chevron-left"></i> iOS UIKit框架学习—UITabBar
+              <a href="/2018/07/25/Mac制作一个可执行脚本/" rel="next" title="Mac 制作一个可执行脚本">
+                <i class="fa fa-chevron-left"></i> Mac 制作一个可执行脚本
               </a>
             
           </div>
@@ -443,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/25/iOS-UIKit框架学习—UINavigationBar/" rel="prev" title="iOS UIKit框架学习—UINavigationBar">
-                iOS UIKit框架学习—UINavigationBar <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -591,6 +611,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开终端进入-ssh目录"><span class="nav-number">1.</span> <span class="nav-text">打开终端进入.ssh目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成RSA密钥"><span class="nav-number">2.</span> <span class="nav-text">生成RSA密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看公钥内容"><span class="nav-number">3.</span> <span class="nav-text">查看公钥内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在GitHub账户中添加公钥"><span class="nav-number">4.</span> <span class="nav-text">在GitHub账户中添加公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证是否添加成功"><span class="nav-number">5.</span> <span class="nav-text">验证是否添加成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
