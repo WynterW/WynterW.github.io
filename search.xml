@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[iOS 处理导致JSON解析失败的特殊字符]]></title>
-    <url>%2F2019%2F02%2F15%2FiOS%20%20%E5%A4%84%E7%90%86%E5%AF%BC%E8%87%B4JSON%E8%A7%A3%E6%9E%90%E5%A4%B1%E8%B4%A5%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%2F</url>
-    <content type="text"><![CDATA[在网络请求完成后会获得NSData类型的数据，通常情况下直接使用+ ( id)JSONObjectWithData:options: error:方法转换即可，但实际开发数据中会包含一些特殊字符导致解析失败。 目前找到导致JSON解析失败的字符串如下： \ \’ \n \r \t \\ \f \b \v 方法一：删除特殊字符123456789101112NSString *jsonStr = @&quot;&#123;\&quot;code\&quot;:\&quot;0\&quot;,\&quot;data\&quot;:&#123;\&quot;content\&quot;:\&quot;1、\&apos; 2、\r\n 3、\n 4、\r 5、\t 6、\\ 7、\f 8、\b 9、\v \&quot;&#125;,\&quot;message\&quot;:\&quot;操作成功\&quot;&#125;&quot;;jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\&apos;&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\n&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\r&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\t&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\\&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\f&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\b&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\v&quot; withString:@&quot;&quot;];NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil]; 方法二：使用 \ 进行转译处理1234567891011NSString *jsonStr = @&quot;&#123;\&quot;code\&quot;:\&quot;0\&quot;,\&quot;data\&quot;:&#123;\&quot;content\&quot;:\&quot;1、\&apos; 2、\r\n 3、\n 4、\r 5、\t 6、\\ 7、\f 8、\b 9、\v \&quot;&#125;,\&quot;message\&quot;:\&quot;操作成功\&quot;&#125;&quot;;jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\&apos;)&quot; withString:@&quot;\\\\&apos;&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\n)&quot; withString:@&quot;\\\\n&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\r)&quot; withString:@&quot;\\\\r&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\t)&quot; withString:@&quot;\\\\t&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\f)&quot; withString:@&quot;\\\\f&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\b)&quot; withString:@&quot;\\\\b&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\v)&quot; withString:@&quot;\\\\v&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\\\\)&quot; withString:@&quot;\\\\\\\\&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil]; 总结直接删除特殊字符相对来说比较暴力，推荐使用\进行转译处理特殊字符串]]></content>
+    <title><![CDATA[Git使用总结]]></title>
+    <url>%2F2019%2F02%2F27%2FGit%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[之前项目一直使用的是SVN，唯一使用的Git就是GitHub，但是也是个人项目用到的也是几个简单Git命令，并没有团队合作开发使用过，在使用过程中难免会遇到一些新手都会遇到的问题，这篇文章就专门记录一些Git常用命令及使用过程中遇到的一些问题。 常用命令创建项目并添加文件12345678# 初始化项目git init # 添加指定文件到缓存区git add test.text# 添加所有文件到缓存区，简单粗暴git add .# 添加提交说明git commit -m "添加了test.text文件" git本地仓库关联到github远程仓库1234# 关联到远程仓库git remote add origin https://github.com/UserName/ProjectName.git# 推送到远程仓库实现同步,-u的作用是关联本地和远程仓库并将本地仓推送到远程仓git push -u origin master 拉取最新代码1git pull 推送本地修改到远程仓库123# 推送本地到远程仓库主干或分支# git push origin &lt;branchName&gt;git push origin master 克隆项目1git clone https://github.com/UserName/ProjectName.git 分支管理123456789101112# 查看分支git branch# 创建分支git branch &lt;name&gt;# 切换分支git checkout &lt;name&gt;# 创建并切换分支git checkout -b &lt;name&gt;# 合并某分支到当前分支git merge &lt;name&gt; # 删除分支git branch -d &lt;name&gt; 存储和恢复，通常用于分支间切换修复bug123456789101112# 存储当前状态git stash# 查看存储状态git stash list# 恢复指定的存储状态git stash apply stash@&#123;0&#125;# 恢复存储状态git stash apply# 删除存储状态git stash drop# 恢复存储状态并删除stash,推荐使用git stash pop 标签管理123456789101112131415161718192021# 查看标签列表git tag# 创建标签git tag &lt;tagName&gt;# 创建标签git tag -a &lt;tagName&gt; -m "V7.0发布了，打个标签"# 查看最近commit id列表git log --pretty=oneline --abbrev-commit# 针对指定commit id打标签git tag &lt;tagName&gt; &lt;commit id&gt;# 删除标签git tag -d &lt;tagName&gt;# 推送指定标签到远程仓库git push origin &lt;tagName&gt;# 推送全部标签到远程仓库git push origin --tags# 删除标签，已经推送到远程库需要两步# 1、删除本地标签git tag -d &lt;tagName&gt;# 2、删除远程标签git push origin :refs/tags/&lt;tagName&gt; 版本回退12345# 退回到上一个版本git reset --hard HEAD^# 退回到指定版本，只输入commit id前几位也可以git reset --hard commit id# git reflog 删除文件12345678# 删除文件git rm &lt;fileName&gt;# 删除目录及目录下所包含的文件git rm &lt;fileName&gt; -r -f # 从缓存中删除文件，但物理文件还在项目中git rm --cached &lt;fileName&gt;# 缓存和物理文件同时删除git rm --f &lt;fileName&gt; frok更新到最新的源库代码123456# upstream是一个自定义命名，相当于把你克隆的项目与源项目进行一个关联git remote add upstream https://github.com/UserName/Project.git # 更新源项目代码git fetch upstream # 更新之后合并到本地，此刻可能发生冲突git merge upstream/master 查看远程库的信息12# 忘记git地址可以使用查看git remote -v 操作日志1234# 查看操作日志git log# 查看历史操作日志git reflog 查看版本状态12# 可以看修改或操作了那些文件git status 常见问题合并分支UserInterfaceState.xcuserstate引起冲突问题 方法一： 删除xcuserdata目录，重新合并 方法二： 全局设置忽略xcuserdata修改1、vi .gitignore_global2、添加xcuserdata 到文件中 总结后续使用遇到问题或者小技巧还会持续更新。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[iOS 利用KVO和KVC解决SDCycleScrollView功能缺陷]]></title>
+    <url>%2F2019%2F02%2F15%2FiOS%20%E5%88%A9%E7%94%A8KVO%E5%92%8CKVC%E8%A7%A3%E5%86%B3SDCycleScrollView%E5%8A%9F%E8%83%BD%E7%BC%BA%E9%99%B7%2F</url>
+    <content type="text"><![CDATA[SDCycleScrollView使用起来非常便利，可能一些小细节会自己的需求不符，在不修改源代码的情况下项目中做了调整来满足UI需求，记录下一下。 解决分页控件不能靠右问题123456789101112131415[[self.adScrollView valueForKeyPath:@&quot;_pageControl&quot;] addObserver:self forKeyPath:@&quot;hidden&quot; options:NSKeyValueObservingOptionNew context:nil];- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context&#123; if([keyPath isEqualToString:@&quot;hidden&quot;]) &#123; UIControl *pageControl = [self.adScrollView valueForKeyPath:@&quot;_pageControl&quot;]; CGRect frame = pageControl.frame; frame.origin.x = 15; pageControl.frame = frame; &#125;&#125;// 注销监听- (void)dealloc&#123; [[self.adScrollView valueForKeyPath:@&quot;_pageControl&quot;] removeObserver:self forKeyPath:@&quot;hidden&quot;];&#125; 解决背景图片不能铺满问题12UIImageView *backgroundImageView = [cycleScrollView valueForKeyPath:@&quot;_backgroundImageView&quot;];backgroundImageView.contentMode = UIViewContentModeScaleToFill;]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -12,9 +17,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS 利用KVO和KVC解决SDCycleScrollView功能缺陷]]></title>
-    <url>%2F2019%2F02%2F15%2FiOS%20%E5%88%A9%E7%94%A8KVO%E5%92%8CKVC%E8%A7%A3%E5%86%B3SDCycleScrollView%E5%8A%9F%E8%83%BD%E7%BC%BA%E9%99%B7%2F</url>
-    <content type="text"><![CDATA[SDCycleScrollView使用起来非常便利，可能一些小细节会自己的需求不符，在不修改源代码的情况下项目中做了调整来满足UI需求，记录下一下。 解决分页控件不能靠右问题123456789101112131415[[self.adScrollView valueForKeyPath:@&quot;_pageControl&quot;] addObserver:self forKeyPath:@&quot;hidden&quot; options:NSKeyValueObservingOptionNew context:nil];- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context&#123; if([keyPath isEqualToString:@&quot;hidden&quot;]) &#123; UIControl *pageControl = [self.adScrollView valueForKeyPath:@&quot;_pageControl&quot;]; CGRect frame = pageControl.frame; frame.origin.x = 15; pageControl.frame = frame; &#125;&#125;// 注销监听- (void)dealloc&#123; [[self.adScrollView valueForKeyPath:@&quot;_pageControl&quot;] removeObserver:self forKeyPath:@&quot;hidden&quot;];&#125; 解决背景图片不能铺满问题12UIImageView *backgroundImageView = [cycleScrollView valueForKeyPath:@&quot;_backgroundImageView&quot;];backgroundImageView.contentMode = UIViewContentModeScaleToFill;]]></content>
+    <title><![CDATA[iOS 处理导致JSON解析失败的特殊字符]]></title>
+    <url>%2F2019%2F02%2F15%2FiOS%20%20%E5%A4%84%E7%90%86%E5%AF%BC%E8%87%B4JSON%E8%A7%A3%E6%9E%90%E5%A4%B1%E8%B4%A5%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%2F</url>
+    <content type="text"><![CDATA[在网络请求完成后会获得NSData类型的数据，通常情况下直接使用+ ( id)JSONObjectWithData:options: error:方法转换即可，但实际开发数据中会包含一些特殊字符导致解析失败。 目前找到导致JSON解析失败的字符串如下： \ \’ \n \r \t \\ \f \b \v 方法一：删除特殊字符123456789101112NSString *jsonStr = @&quot;&#123;\&quot;code\&quot;:\&quot;0\&quot;,\&quot;data\&quot;:&#123;\&quot;content\&quot;:\&quot;1、\&apos; 2、\r\n 3、\n 4、\r 5、\t 6、\\ 7、\f 8、\b 9、\v \&quot;&#125;,\&quot;message\&quot;:\&quot;操作成功\&quot;&#125;&quot;;jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\&apos;&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\n&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\r&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\t&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\\&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\f&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\b&quot; withString:@&quot;&quot;];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;\v&quot; withString:@&quot;&quot;];NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil]; 方法二：使用 \ 进行转译处理1234567891011NSString *jsonStr = @&quot;&#123;\&quot;code\&quot;:\&quot;0\&quot;,\&quot;data\&quot;:&#123;\&quot;content\&quot;:\&quot;1、\&apos; 2、\r\n 3、\n 4、\r 5、\t 6、\\ 7、\f 8、\b 9、\v \&quot;&#125;,\&quot;message\&quot;:\&quot;操作成功\&quot;&#125;&quot;;jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\&apos;)&quot; withString:@&quot;\\\\&apos;&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\n)&quot; withString:@&quot;\\\\n&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\r)&quot; withString:@&quot;\\\\r&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\t)&quot; withString:@&quot;\\\\t&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\f)&quot; withString:@&quot;\\\\f&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\b)&quot; withString:@&quot;\\\\b&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\v)&quot; withString:@&quot;\\\\v&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];jsonStr = [jsonStr stringByReplacingOccurrencesOfString:@&quot;(\\\\)&quot; withString:@&quot;\\\\\\\\&quot; options:NSRegularExpressionSearch range:NSMakeRange(0, jsonStr.length)];NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil]; 总结直接删除特殊字符相对来说比较暴力，推荐使用\进行转译处理特殊字符串]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -75,9 +80,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS 自定义-苹方字体的使用]]></title>
-    <url>%2F2018%2F05%2F11%2FiOS%20%E8%87%AA%E5%AE%9A%E4%B9%89-%E8%8B%B9%E6%96%B9%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[不是系统已经自带苹方字体了为什么还要自定义呢？因为苹方字体是在iOS 9引入的，所以如果要支持iOS 9以下都要手动引入苹方字体。 添加苹方字体到项目中 获取苹方字体，Command+G输入/System/Library/Fonts/PingFang.ttc 直接拖到将PingFang.ttc文件拖到项目中 在 info.plist文件中添加Fonts provided by application，并设置字体包名称 我在iOS 8系统的模拟器中没有在Info.plist中添加Fonts provided by application，也已经可以正常使用苹方字体了 获取当前系统支持的字体1234567891011121314151617181920212223242526272829303132333435for (NSString *fontFamilyName in UIFont.familyNames) &#123; NSLog(@"familyName:%@", fontFamilyName); for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) &#123; NSLog(@"fontName:%@", fontName); &#125;&#125;打印结果省略了苹方字体以外的字体/** …… 2018-04-28 11:07:52.217401+0800 QYLY[5900:238352] familyName:PingFang TC 2018-04-28 11:07:52.218150+0800 QYLY[5900:238352] fontName:PingFangTC-Regular 2018-04-28 11:07:52.218609+0800 QYLY[5900:238352] fontName:PingFangTC-Thin 2018-04-28 11:07:52.219340+0800 QYLY[5900:238352] fontName:PingFangTC-Medium 2018-04-28 11:07:52.220841+0800 QYLY[5900:238352] fontName:PingFangTC-Semibold 2018-04-28 11:07:52.222403+0800 QYLY[5900:238352] fontName:PingFangTC-Light 2018-04-28 11:07:52.223328+0800 QYLY[5900:238352] fontName:PingFangTC-Ultralight …… 2018-04-28 11:07:52.299506+0800 QYLY[5900:238352] familyName:PingFang HK 2018-04-28 11:07:52.300103+0800 QYLY[5900:238352] fontName:PingFangHK-Medium 2018-04-28 11:07:52.300944+0800 QYLY[5900:238352] fontName:PingFangHK-Thin 2018-04-28 11:07:52.301597+0800 QYLY[5900:238352] fontName:PingFangHK-Regular 2018-04-28 11:07:52.302162+0800 QYLY[5900:238352] fontName:PingFangHK-Ultralight 2018-04-28 11:07:52.302652+0800 QYLY[5900:238352] fontName:PingFangHK-Semibold 2018-04-28 11:07:52.303029+0800 QYLY[5900:238352] fontName:PingFangHK-Light …… 2018-04-28 11:07:52.423305+0800 QYLY[5900:238352] familyName:PingFang SC 2018-04-28 11:07:52.423714+0800 QYLY[5900:238352] fontName:PingFangSC-Medium 2018-04-28 11:07:52.424151+0800 QYLY[5900:238352] fontName:PingFangSC-Semibold 2018-04-28 11:07:52.424397+0800 QYLY[5900:238352] fontName:PingFangSC-Light 2018-04-28 11:07:52.424621+0800 QYLY[5900:238352] fontName:PingFangSC-Ultralight 2018-04-28 11:07:52.424934+0800 QYLY[5900:238352] fontName:PingFangSC-Regular 2018-04-28 11:07:52.425314+0800 QYLY[5900:238352] fontName:PingFangSC-Thin …… */ 苹方字体怎么会有PingFang SC、PingFang TC、PingFang HK三种呢？对应的是苹方-简、苹方-繁、苹方-港，而且都有六种字重，具体可以在字体册中查看。 苹方-简 中黑体 PingFangSC-Medium苹方-简 中粗体 PingFangSC-Semibold苹方-简 细体 PingFangSC-Light苹方-简 极细体 PingFangSC-Ultralight苹方-简 常规体 PingFangSC-Regular苹方-简 纤细体 PingFangSC-Thin 设置苹方字体123456789// 苹方字体，默认为PingFangSC-RegularUIFont *font = [UIFont fontWithName:@"PingFangSC-Regular" size:14];NSString *familyName = font.familyName;NSString *fontName = font.fontName;NSLog(@"familyName:%@\nfontName:%@", familyName, fontName);/** familyName:PingFang SC fontName:PingFangSC-Regular */ 扩展每次都要输入字体名称比较麻烦，并且还要支持iOS 9以下，使用分类方法比较好。 1234567891011121314151617181920212223#import &lt;UIKit/UIKit.h&gt;typedef NS_ENUM(NSInteger, FontWeightStyle) &#123; FontWeightStyleMedium, // 中黑体 FontWeightStyleSemibold, // 中粗体 FontWeightStyleLight, // 细体 FontWeightStyleUltralight, // 极细体 FontWeightStyleRegular, // 常规体 FontWeightStyleThin, // 纤细体&#125;;@interface UIFont (Ex)/** 苹方字体 @param fontWeight 字体粗细（字重) @param fontSize 字体大小 @return 返回指定字重大小的苹方字体 */+ (UIFont *)pingFangSCWithWeight:(FontWeightStyle)fontWeight size:(CGFloat)fontSize;@end 12345678910111213141516171819202122232425262728293031323334353637#import "UIFont+Ex.h"@implementation UIFont (Ex)+ (UIFont *)pingFangSCWithWeight:(FontWeightStyle)fontWeight size:(CGFloat)fontSize &#123; if (fontWeight &lt; FontWeightStyleMedium || fontWeight &gt; FontWeightStyleThin) &#123; fontWeight = FontWeightStyleRegular; &#125; NSString *fontName = @"PingFangSC-Regular"; switch (fontWeight) &#123; case FontWeightStyleMedium: fontName = @"PingFangSC-Medium"; break; case FontWeightStyleSemibold: fontName = @"PingFangSC-Semibold"; break; case FontWeightStyleLight: fontName = @"PingFangSC-Light"; break; case FontWeightStyleUltralight: fontName = @"PingFangSC-Ultralight"; break; case FontWeightStyleRegular: fontName = @"PingFangSC-Regular"; break; case FontWeightStyleThin: fontName = @"PingFangSC-Thin"; break; &#125; UIFont *font = [UIFont fontWithName:fontName size:fontSize]; return font ?: [UIFont systemFontOfSize:fontSize];&#125;@end]]></content>
+    <title><![CDATA[iOS 使用AFNetworking传输字符串]]></title>
+    <url>%2F2018%2F05%2F11%2FiOS%20%E4%BD%BF%E7%94%A8AFNetworking%E4%BC%A0%E8%BE%93%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
+    <content type="text"><![CDATA[通常网络请求使用AFNetworking我们都会将字典作为参数传给服务端，如果应用对数据的安全级别要求较高，这时肯定会将参数加密后再传输，那么上传的参数就变成一串看不懂的字符串，我们只需要设置AFHTTPSessionManager中几个类型即可直接上传字符。 配置参数请求和接收类型12345678910+ (AFHTTPSessionManager *)getRequstManager &#123; AFHTTPSessionManager *manager = [AFHTTPSessionManager manager]; manager.requestSerializer.timeoutInterval = 30; manager.requestSerializer.stringEncoding = NSUTF8StringEncoding; manager.requestSerializer = [AFHTTPRequestSerializer serializer]; manager.responseSerializer = [AFHTTPResponseSerializer serializer]; [manager.requestSerializer setValue:@&quot;text/html&quot; forHTTPHeaderField:@&quot;Accept&quot;]; [manager.requestSerializer setValue:@&quot;text/html&quot; forHTTPHeaderField:@&quot;Content-Type&quot;]; return manager;&#125; 配置完成后发送请求，可能会发现服务端接收的字符串前面莫名的多出’=’符号，查看源码发现AFURLRequestSerialization文件中下面的方法引起的1234567- (NSString *)URLEncodedStringValue &#123; if (!self.value || [self.value isEqual:[NSNull null]]) &#123; return AFPercentEscapedStringFromString([self.field description]); &#125; else &#123; return [NSString stringWithFormat:@&quot;%@=%@&quot;, AFPercentEscapedStringFromString([self.field description]), AFPercentEscapedStringFromString([self.value description])]; &#125;&#125; 顺藤摸瓜发现AFQueryStringFromParameters函数中使用到了- URLEncodedStringValue方法。发现如下代码使用到了AFQueryStringFromParameters函数，如果实现self.queryStringSerialization属性就可以解决’=’问题。123456789101112131415161718if (self.queryStringSerialization) &#123; NSError *serializationError; query = self.queryStringSerialization(request, parameters, &amp;serializationError); if (serializationError) &#123; if (error) &#123; *error = serializationError; &#125; return nil; &#125;&#125; else &#123; switch (self.queryStringSerializationStyle) &#123; case AFHTTPRequestQueryStringDefaultStyle: query = AFQueryStringFromParameters(parameters); break; &#125;&#125; 解决’=’方法1234567891011AFHTTPSessionManager *manager = [self sessionManager];[manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) &#123; return paramsStr;&#125;];[manager POST:urlStr parameters:paramsStr progress:^(NSProgress * _Nonnull uploadProgress) &#123; &#125; success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) &#123; &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123; &#125;]; 总结 不建议修改直接源码达到去掉’=’目的，通常可能因为源码版本更新而遗忘。 如果使用原生网络请求可以直接通过[request setHTTPBody:data]来实现字符串或其他数据传输。]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -97,9 +102,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS 使用AFNetworking传输字符串]]></title>
-    <url>%2F2018%2F05%2F11%2FiOS%20%E4%BD%BF%E7%94%A8AFNetworking%E4%BC%A0%E8%BE%93%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
-    <content type="text"><![CDATA[通常网络请求使用AFNetworking我们都会将字典作为参数传给服务端，如果应用对数据的安全级别要求较高，这时肯定会将参数加密后再传输，那么上传的参数就变成一串看不懂的字符串，我们只需要设置AFHTTPSessionManager中几个类型即可直接上传字符。 配置参数请求和接收类型12345678910+ (AFHTTPSessionManager *)getRequstManager &#123; AFHTTPSessionManager *manager = [AFHTTPSessionManager manager]; manager.requestSerializer.timeoutInterval = 30; manager.requestSerializer.stringEncoding = NSUTF8StringEncoding; manager.requestSerializer = [AFHTTPRequestSerializer serializer]; manager.responseSerializer = [AFHTTPResponseSerializer serializer]; [manager.requestSerializer setValue:@&quot;text/html&quot; forHTTPHeaderField:@&quot;Accept&quot;]; [manager.requestSerializer setValue:@&quot;text/html&quot; forHTTPHeaderField:@&quot;Content-Type&quot;]; return manager;&#125; 配置完成后发送请求，可能会发现服务端接收的字符串前面莫名的多出’=’符号，查看源码发现AFURLRequestSerialization文件中下面的方法引起的1234567- (NSString *)URLEncodedStringValue &#123; if (!self.value || [self.value isEqual:[NSNull null]]) &#123; return AFPercentEscapedStringFromString([self.field description]); &#125; else &#123; return [NSString stringWithFormat:@&quot;%@=%@&quot;, AFPercentEscapedStringFromString([self.field description]), AFPercentEscapedStringFromString([self.value description])]; &#125;&#125; 顺藤摸瓜发现AFQueryStringFromParameters函数中使用到了- URLEncodedStringValue方法。发现如下代码使用到了AFQueryStringFromParameters函数，如果实现self.queryStringSerialization属性就可以解决’=’问题。123456789101112131415161718if (self.queryStringSerialization) &#123; NSError *serializationError; query = self.queryStringSerialization(request, parameters, &amp;serializationError); if (serializationError) &#123; if (error) &#123; *error = serializationError; &#125; return nil; &#125;&#125; else &#123; switch (self.queryStringSerializationStyle) &#123; case AFHTTPRequestQueryStringDefaultStyle: query = AFQueryStringFromParameters(parameters); break; &#125;&#125; 解决’=’方法1234567891011AFHTTPSessionManager *manager = [self sessionManager];[manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) &#123; return paramsStr;&#125;];[manager POST:urlStr parameters:paramsStr progress:^(NSProgress * _Nonnull uploadProgress) &#123; &#125; success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) &#123; &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123; &#125;]; 总结 不建议修改直接源码达到去掉’=’目的，通常可能因为源码版本更新而遗忘。 如果使用原生网络请求可以直接通过[request setHTTPBody:data]来实现字符串或其他数据传输。]]></content>
+    <title><![CDATA[iOS 自定义-苹方字体的使用]]></title>
+    <url>%2F2018%2F05%2F11%2FiOS%20%E8%87%AA%E5%AE%9A%E4%B9%89-%E8%8B%B9%E6%96%B9%E5%AD%97%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[不是系统已经自带苹方字体了为什么还要自定义呢？因为苹方字体是在iOS 9引入的，所以如果要支持iOS 9以下都要手动引入苹方字体。 添加苹方字体到项目中 获取苹方字体，Command+G输入/System/Library/Fonts/PingFang.ttc 直接拖到将PingFang.ttc文件拖到项目中 在 info.plist文件中添加Fonts provided by application，并设置字体包名称 我在iOS 8系统的模拟器中没有在Info.plist中添加Fonts provided by application，也已经可以正常使用苹方字体了 获取当前系统支持的字体1234567891011121314151617181920212223242526272829303132333435for (NSString *fontFamilyName in UIFont.familyNames) &#123; NSLog(@"familyName:%@", fontFamilyName); for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) &#123; NSLog(@"fontName:%@", fontName); &#125;&#125;打印结果省略了苹方字体以外的字体/** …… 2018-04-28 11:07:52.217401+0800 QYLY[5900:238352] familyName:PingFang TC 2018-04-28 11:07:52.218150+0800 QYLY[5900:238352] fontName:PingFangTC-Regular 2018-04-28 11:07:52.218609+0800 QYLY[5900:238352] fontName:PingFangTC-Thin 2018-04-28 11:07:52.219340+0800 QYLY[5900:238352] fontName:PingFangTC-Medium 2018-04-28 11:07:52.220841+0800 QYLY[5900:238352] fontName:PingFangTC-Semibold 2018-04-28 11:07:52.222403+0800 QYLY[5900:238352] fontName:PingFangTC-Light 2018-04-28 11:07:52.223328+0800 QYLY[5900:238352] fontName:PingFangTC-Ultralight …… 2018-04-28 11:07:52.299506+0800 QYLY[5900:238352] familyName:PingFang HK 2018-04-28 11:07:52.300103+0800 QYLY[5900:238352] fontName:PingFangHK-Medium 2018-04-28 11:07:52.300944+0800 QYLY[5900:238352] fontName:PingFangHK-Thin 2018-04-28 11:07:52.301597+0800 QYLY[5900:238352] fontName:PingFangHK-Regular 2018-04-28 11:07:52.302162+0800 QYLY[5900:238352] fontName:PingFangHK-Ultralight 2018-04-28 11:07:52.302652+0800 QYLY[5900:238352] fontName:PingFangHK-Semibold 2018-04-28 11:07:52.303029+0800 QYLY[5900:238352] fontName:PingFangHK-Light …… 2018-04-28 11:07:52.423305+0800 QYLY[5900:238352] familyName:PingFang SC 2018-04-28 11:07:52.423714+0800 QYLY[5900:238352] fontName:PingFangSC-Medium 2018-04-28 11:07:52.424151+0800 QYLY[5900:238352] fontName:PingFangSC-Semibold 2018-04-28 11:07:52.424397+0800 QYLY[5900:238352] fontName:PingFangSC-Light 2018-04-28 11:07:52.424621+0800 QYLY[5900:238352] fontName:PingFangSC-Ultralight 2018-04-28 11:07:52.424934+0800 QYLY[5900:238352] fontName:PingFangSC-Regular 2018-04-28 11:07:52.425314+0800 QYLY[5900:238352] fontName:PingFangSC-Thin …… */ 苹方字体怎么会有PingFang SC、PingFang TC、PingFang HK三种呢？对应的是苹方-简、苹方-繁、苹方-港，而且都有六种字重，具体可以在字体册中查看。 苹方-简 中黑体 PingFangSC-Medium苹方-简 中粗体 PingFangSC-Semibold苹方-简 细体 PingFangSC-Light苹方-简 极细体 PingFangSC-Ultralight苹方-简 常规体 PingFangSC-Regular苹方-简 纤细体 PingFangSC-Thin 设置苹方字体123456789// 苹方字体，默认为PingFangSC-RegularUIFont *font = [UIFont fontWithName:@"PingFangSC-Regular" size:14];NSString *familyName = font.familyName;NSString *fontName = font.fontName;NSLog(@"familyName:%@\nfontName:%@", familyName, fontName);/** familyName:PingFang SC fontName:PingFangSC-Regular */ 扩展每次都要输入字体名称比较麻烦，并且还要支持iOS 9以下，使用分类方法比较好。 1234567891011121314151617181920212223#import &lt;UIKit/UIKit.h&gt;typedef NS_ENUM(NSInteger, FontWeightStyle) &#123; FontWeightStyleMedium, // 中黑体 FontWeightStyleSemibold, // 中粗体 FontWeightStyleLight, // 细体 FontWeightStyleUltralight, // 极细体 FontWeightStyleRegular, // 常规体 FontWeightStyleThin, // 纤细体&#125;;@interface UIFont (Ex)/** 苹方字体 @param fontWeight 字体粗细（字重) @param fontSize 字体大小 @return 返回指定字重大小的苹方字体 */+ (UIFont *)pingFangSCWithWeight:(FontWeightStyle)fontWeight size:(CGFloat)fontSize;@end 12345678910111213141516171819202122232425262728293031323334353637#import "UIFont+Ex.h"@implementation UIFont (Ex)+ (UIFont *)pingFangSCWithWeight:(FontWeightStyle)fontWeight size:(CGFloat)fontSize &#123; if (fontWeight &lt; FontWeightStyleMedium || fontWeight &gt; FontWeightStyleThin) &#123; fontWeight = FontWeightStyleRegular; &#125; NSString *fontName = @"PingFangSC-Regular"; switch (fontWeight) &#123; case FontWeightStyleMedium: fontName = @"PingFangSC-Medium"; break; case FontWeightStyleSemibold: fontName = @"PingFangSC-Semibold"; break; case FontWeightStyleLight: fontName = @"PingFangSC-Light"; break; case FontWeightStyleUltralight: fontName = @"PingFangSC-Ultralight"; break; case FontWeightStyleRegular: fontName = @"PingFangSC-Regular"; break; case FontWeightStyleThin: fontName = @"PingFangSC-Thin"; break; &#125; UIFont *font = [UIFont fontWithName:fontName size:fontSize]; return font ?: [UIFont systemFontOfSize:fontSize];&#125;@end]]></content>
       <categories>
         <category>iOS</category>
       </categories>
@@ -148,8 +153,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -215,8 +220,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -238,8 +243,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -250,8 +255,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -262,8 +267,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -274,8 +279,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -286,8 +291,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -298,8 +303,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -310,8 +315,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -322,8 +327,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -334,8 +339,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -346,8 +351,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -358,8 +363,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -381,8 +386,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -393,8 +398,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
         <tag>Runtime</tag>
       </tags>
   </entry>
@@ -406,8 +411,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -418,8 +423,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -430,8 +435,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -442,8 +447,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -454,8 +459,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -466,8 +471,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -478,8 +483,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -490,8 +495,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -502,8 +507,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -514,8 +519,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -526,8 +531,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -562,8 +567,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -574,8 +579,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -599,8 +604,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -611,8 +616,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -623,8 +628,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -635,8 +640,8 @@
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>API</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
