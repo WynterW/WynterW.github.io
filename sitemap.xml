@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wynter.wang/2019/02/15/Jenkins%20%E9%85%8D%E7%BD%AEiOS%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/</loc>
+    
+    <lastmod>2019-06-03T09:13:26.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wynter.wang/2019/02/15/%E4%B8%8A%E4%BC%A0App%20Store%E9%9A%90%E7%A7%81%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4%E5%88%9D%E5%AE%A1%E8%A2%AB%E6%8B%92/</loc>
+    
+    <lastmod>2019-06-03T09:11:21.802Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wynter.wang/2019/02/15/VS%20Code%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</loc>
+    
+    <lastmod>2019-06-03T09:10:11.677Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wynter.wang/2019/02/15/iOS%20%E8%8E%B7%E5%8F%96%E6%8E%A7%E5%88%B6%E5%99%A8/</loc>
+    
+    <lastmod>2019-06-03T09:09:23.437Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wynter.wang/2019/02/15/iOS%20WebView%E8%AE%BE%E7%BD%AEUserAgent/</loc>
+    
+    <lastmod>2019-06-03T09:05:32.469Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wynter.wang/2019/02/27/Git%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2019-02-28T03:17:17.956Z</lastmod>
@@ -282,14 +317,14 @@
   </url>
   
   <url>
-    <loc>https://wynter.wang/2017/02/06/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIAlertController/</loc>
+    <loc>https://wynter.wang/2017/02/06/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIAlertView/</loc>
     
     <lastmod>2017-02-06T07:10:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wynter.wang/2017/02/06/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIAlertView/</loc>
+    <loc>https://wynter.wang/2017/02/06/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIAlertController/</loc>
     
     <lastmod>2017-02-06T07:10:54.000Z</lastmod>
     
@@ -303,14 +338,14 @@
   </url>
   
   <url>
-    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIActivityIndicatorView/</loc>
+    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIToolbar/</loc>
     
     <lastmod>2017-01-25T03:48:42.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIToolbar/</loc>
+    <loc>https://wynter.wang/2017/01/25/iOS-UIKit%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E2%80%94UIActivityIndicatorView/</loc>
     
     <lastmod>2017-01-25T03:48:42.000Z</lastmod>
     
