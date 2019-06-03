@@ -41,7 +41,7 @@
   <entry>
     <title><![CDATA[VS Code常用快捷键]]></title>
     <url>%2F2019%2F02%2F15%2FVS%20Code%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%2F</url>
-    <content type="text"><![CDATA[显示所有命令：Command + Shift + P 打开文件或文件夹：Command + O打开最近文件夹：Control + R 新建标签页: Command + \切换标签页: Command + 1 Command + 2 Command + 3新建窗口：Command + Shift + N关闭窗口：Command + Shift + W 切换问题(错误、警告、信息)视图：Command + Shift + M跳转到文件中的符号：Command + Shift + O 刪除当前行： Command + Shift + K插入一行在当前行上方： Command + Shift + Enter 代码格式化：Command + Shift + H VS Code插件常用快捷键： Settings Sync：将设置同步到GitHub 上传：Shift + Alt + U下载：Shift + Alt + D 插件常用命令：Command + Shift + P File Template：文件模板，默认支持JavaScript、HTML、CSS、PHP、Python、Ruby、XML、Vue]]></content>
+    <content type="text"><![CDATA[VS Code常用插件及常用快捷键 显示所有命令：Command + Shift + P 打开文件或文件夹：Command + O打开最近文件夹：Control + R 新建标签页: Command + \切换标签页: Command + 1 Command + 2 Command + 3新建窗口：Command + Shift + N关闭窗口：Command + Shift + W 切换问题(错误、警告、信息)视图：Command + Shift + M跳转到文件中的符号：Command + Shift + O 刪除当前行： Command + Shift + K插入一行在当前行上方： Command + Shift + Enter 代码格式化：Command + Shift + H VS Code插件常用快捷键： Settings Sync：将设置同步到GitHub 上传：Shift + Alt + U下载：Shift + Alt + D 插件常用命令：Command + Shift + P File Template：文件模板，默认支持JavaScript、HTML、CSS、PHP、Python、Ruby、XML、Vue]]></content>
       <categories>
         <category>VS Code</category>
       </categories>

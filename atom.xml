@@ -105,18 +105,13 @@
     <link href="https://wynter.wang/2019/02/15/VS%20Code%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/"/>
     <id>https://wynter.wang/2019/02/15/VS Code常用插件/</id>
     <published>2019-02-15T03:21:13.000Z</published>
-    <updated>2019-06-03T09:10:11.677Z</updated>
+    <updated>2019-06-03T09:18:38.405Z</updated>
     
-    <content type="html"><![CDATA[<p>显示所有命令：Command + Shift + P</p><p>打开文件或文件夹：Command + O<br>打开最近文件夹：Control + R</p><p>新建标签页: Command + \<br>切换标签页: Command + 1 Command + 2 Command + 3<br>新建窗口：Command + Shift + N<br>关闭窗口：Command + Shift + W</p><p>切换问题(错误、警告、信息)视图：Command + Shift + M<br>跳转到文件中的符号：Command + Shift + O</p><p>刪除当前行： Command + Shift + K<br>插入一行在当前行上方： Command + Shift + Enter</p><p>代码格式化：Command + Shift + H</p><h1 id="VS-Code插件常用快捷键："><a href="#VS-Code插件常用快捷键：" class="headerlink" title="VS Code插件常用快捷键："></a>VS Code插件常用快捷键：</h1><ul><li><p>Settings Sync：将设置同步到GitHub</p><p>上传：Shift + Alt + U<br>下载：Shift + Alt + D</p></li></ul><h2 id="插件常用命令：Command-Shift-P"><a href="#插件常用命令：Command-Shift-P" class="headerlink" title="插件常用命令：Command + Shift + P"></a>插件常用命令：Command + Shift + P</h2><ul><li>File Template：文件模板，默认支持JavaScript、HTML、CSS、PHP、Python、Ruby、XML、Vue</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>VS Code常用插件及常用快捷键</p><a id="more"></a><p>显示所有命令：Command + Shift + P</p><p>打开文件或文件夹：Command + O<br>打开最近文件夹：Control + R</p><p>新建标签页: Command + \<br>切换标签页: Command + 1 Command + 2 Command + 3<br>新建窗口：Command + Shift + N<br>关闭窗口：Command + Shift + W</p><p>切换问题(错误、警告、信息)视图：Command + Shift + M<br>跳转到文件中的符号：Command + Shift + O</p><p>刪除当前行： Command + Shift + K<br>插入一行在当前行上方： Command + Shift + Enter</p><p>代码格式化：Command + Shift + H</p><h1 id="VS-Code插件常用快捷键："><a href="#VS-Code插件常用快捷键：" class="headerlink" title="VS Code插件常用快捷键："></a>VS Code插件常用快捷键：</h1><ul><li><p>Settings Sync：将设置同步到GitHub</p><p>上传：Shift + Alt + U<br>下载：Shift + Alt + D</p></li></ul><h2 id="插件常用命令：Command-Shift-P"><a href="#插件常用命令：Command-Shift-P" class="headerlink" title="插件常用命令：Command + Shift + P"></a>插件常用命令：Command + Shift + P</h2><ul><li>File Template：文件模板，默认支持JavaScript、HTML、CSS、PHP、Python、Ruby、XML、Vue</li></ul>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;显示所有命令：Command + Shift + P&lt;/p&gt;
-&lt;p&gt;打开文件或文件夹：Command + O&lt;br&gt;打开最近文件夹：Control + R&lt;/p&gt;
-&lt;p&gt;新建标签页: Command + \&lt;br&gt;切换标签页: Command + 1 Command + 2
-      
+      &lt;p&gt;VS Code常用插件及常用快捷键&lt;/p&gt;
     
     </summary>
     
